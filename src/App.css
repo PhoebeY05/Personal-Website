@@ -1,3 +1,11 @@
+/* apply theme to page */
+html,
+body {
+	background: var(--bg);
+	color: var(--text);
+	transition: background var(--transition), color var(--transition);
+}
+
 #root {
 	max-width: 1280px;
 	margin: 0 auto;
