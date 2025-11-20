@@ -1,12 +1,9 @@
-import './App.css';
-import ThemeToggle from './components/ThemeToggle';
+import Navbar from './components/Navbar';
 
 function App() {
 	return (
-		<div className="App">
-			<header>
-				<ThemeToggle />
-			</header>
+		<div className="bg-brand-bg">
+			<Navbar />
 		</div>
 	);
 }

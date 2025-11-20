@@ -3,126 +3,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* Light theme */
 :root {
-  --bg: #faf7f5;
-  --text: #2a2a2a;
-  --muted: #8b8b8b;
-  --accent: #e6a4b4;
-  --secondary: #a8d8ea;
-  --react-accent: #f6d8df;
-  --card-bg: #ffffff;
+	--bg: #faf7f5;
+	--text: #2a2a2a;
+	--muted: #8b8b8b;
+	--accent: #e6a4b4;
+	--secondary: #a8d8ea;
+	--react-accent: #f6d8df;
+	--card-bg: #ffffff;
 }
 
 /* Dark theme (applied when you toggle the 'dark' class on <html> / :root) */
 :root.dark,
 [data-theme="dark"] {
-  --bg: #0c0c0f;
-  --text: #f5f2eb;
-  --muted: #b3ac9d;
-  --accent: #d8a44b;
-  --react-accent: #f1d095;
-  --secondary: #131316;
-  --card-bg: #131316;
+	--bg: #0c0c0f;
+	--text: #f5f2eb;
+	--muted: #b3ac9d;
+	--accent: #d8a44b;
+	--react-accent: #f1d095;
+	--secondary: #131316;
+	--card-bg: #131316;
 }
 
 /* Tailwind v4 theme variables */
 @theme {
-  /* Brand colors exposed as Tailwind utilities */
-  --color-brand-bg: var(--bg);
-  --color-brand-text: var(--text);
-  --color-brand-muted: var(--muted);
-  --color-brand-accent: var(--accent);
-  --color-brand-react: var(--react-accent);
-  --color-brand-secondary: var(--secondary);
-  --color-brand-card: var(--card-bg);
+	/* Brand colors exposed as Tailwind utilities */
+	--color-brand-bg: var(--bg);
+	--color-brand-text: var(--text);
+	--color-brand-muted: var(--muted);
+	--color-brand-accent: var(--accent);
+	--color-brand-react: var(--react-accent);
+	--color-brand-secondary: var(--secondary);
+	--color-brand-card: var(--card-bg);
 
-  /* Optional: gradient utility */
-  --color-brand-gradient: linear-gradient(
-    135deg,
-    var(--accent),
-    var(--react-accent)
-  );
-}
-
-
-
-
-/* apply variables for plain CSS fallback */
-body {
-	margin: 0;
-	display: flex;
-	place-items: center;
-	min-width: 320px;
-	min-height: 100vh;
-
-	/* use variables so toggling data-theme/class affects body */
-	color: var(--text);
-	background-color: var(--bg);
-}
-
-/* anchors and hover use accent variable */
-a {
-	font-weight: 500;
-	color: var(--accent);
-	text-decoration: inherit;
-}
-a:hover {
-	color: color-mix(in srgb, var(--accent) 80%, transparent); /* subtle hover */
-}
-
-/* ensure headings use variable text color */
-h1 {
-	font-size: 3.2em;
-	line-height: 1.1;
-	color: var(--text);
-}
-
-/* buttons use variables */
-button {
-	border-radius: 8px;
-	border: 1px solid var(--button-border);
-	padding: 0.6em 1.2em;
-	font-size: 1em;
-	font-weight: 500;
-	font-family: inherit;
-	background-color: var(--button-bg);
-	color: var(--text);
-	cursor: pointer;
-	transition: border-color 0.25s, opacity 0.15s;
-}
-button:hover {
-	border-color: var(--accent);
-	opacity: 0.95;
-}
-button:focus,
-button:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color;
-}
-
-/* make .card / .bg classes use theme variables so App.css won't hard-set colours */
-.card {
-	background-color: var(--color-brand-card);
-	color: var(--color-brand-text);
-}
-.bg {
-	background-color: var(--color-brand-bg);
-	color: var(--color-brand-text);
-}
-
-@media (prefers-color-scheme: light) {
-	:root {
-		/* keep a sensible default for users without JS or explicit choice */
-		--bg: #ffffff;
-		--text: #213547;
-	}
-
-	a:hover {
-		/* keep hover in light mode sensible */
-		color: #747bff;
-	}
-
-	button {
-		background-color: var(--button-bg);
-	}
+	/* Optional: gradient utility */
+	--color-brand-gradient: linear-gradient(135deg,
+			var(--accent),
+			var(--react-accent));
 }
