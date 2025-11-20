@@ -1,5 +1,11 @@
 name: CI/CD Pipeline
 
+# Grant the workflow the permissions needed to push to gh-pages and write repo contents
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 on:
   push:
     branches:
@@ -49,11 +55,9 @@ jobs:
       - name: Checkout repository (needed for gh-pages push)
         uses: actions/checkout@v3
 
-      - name: Configure git for actions
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
         with:
