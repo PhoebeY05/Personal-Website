@@ -17,9 +17,9 @@ export const skills: Skill[] = [
 	{ type: 'Web Development', name: 'CSS', level: 'medium' },
 	{ type: 'Web Development', name: 'Flask', level: 'medium' },
 	{ type: 'Web Development', name: 'SQL', level: 'medium' },
-	{ type: 'Programming Languages', name: 'Ruby on Rails', level: 'medium' },
-	{ type: 'Programming Languages', name: 'Tailwind CSS', level: 'medium' },
-	{ type: 'Programming Languages', name: 'Bootstrap', level: 'medium' },
+	{ type: 'Web Development', name: 'Ruby on Rails', level: 'medium' },
+	{ type: 'Web Development', name: 'Tailwind CSS', level: 'medium' },
+	{ type: 'Web Development', name: 'Bootstrap', level: 'medium' },
 
 	// App Development
 	{ type: 'App Development', name: 'React Native', level: 'medium' },
@@ -28,7 +28,7 @@ export const skills: Skill[] = [
 	// AI / Data
 	{ type: 'AI / Data', name: 'Exploratory Data Analysis (EDA)', level: 'medium' },
 	{ type: 'AI / Data', name: 'Machine Learning', level: 'low' },
-	{ type: 'AI / Data', name: 'NLP', level: 'low' },
+	{ type: 'AI / Data', name: 'Natural Language Processing (NLP)', level: 'low' },
 
 	// Cybersecurity
 	{ type: 'Cybersecurity', name: 'OSINT', level: 'low' },
