@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @tailwind base;
 @tailwind components;
@@ -17,7 +17,7 @@
 
 /* Dark theme (applied when you toggle the 'dark' class on <html> / :root) */
 :root.dark,
-[data-theme="dark"] {
+[data-theme='dark'] {
 	--bg: #0c0c0f;
 	--text: #f5f2eb;
 	--muted: #b3ac9d;
@@ -39,7 +39,5 @@
 	--color-brand-card: var(--card-bg);
 
 	/* Optional: gradient utility */
-	--color-brand-gradient: linear-gradient(135deg,
-			var(--accent),
-			var(--react-accent));
+	--color-brand-gradient: linear-gradient(135deg, var(--accent), var(--react-accent));
 }
