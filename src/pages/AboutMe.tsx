@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 import Sketch from '../assets/Sketch.png'; // Profile image
+import Placeholder from '../assets/placeholder.png';
 
 export default function AboutMe(): JSX.Element {
 	const skills = ['Python', 'Flask', 'SQL', 'HTML/CSS/JS', 'Cybersecurity', 'AI/ML', 'React', 'App Development'];
@@ -27,7 +28,7 @@ export default function AboutMe(): JSX.Element {
 								className="w-full rounded-lg mb-4 object-cover"
 								onError={(e) => {
 									console.warn('Profile image failed to load, using placeholder');
-									(e.currentTarget as HTMLImageElement).src = 'https://via.placeholder.com/480x320?text=Profile';
+									(e.currentTarget as HTMLImageElement).src = Placeholder;
 								}}
 							/>
 							<h2 className="text-2xl font-semibold">Phoebe Yap</h2>
@@ -47,6 +48,22 @@ export default function AboutMe(): JSX.Element {
 								embrace challenges that push me out of my comfort zone. Beyond tech, I’m reflective, empathetic in
 								thought, and constantly looking for ways to grow and improve.
 							</p>
+						</div>
+						<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4">
+							{/* Skills Section*/}
+							<section>
+								<h2 className="text-3xl font-bold mb-6 text-center md:text-left">Skills</h2>
+								<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+									{skills.map((skill) => (
+										<div
+											key={skill}
+											className="bg-brand-accent p-4 rounded-lg shadow-sm text-center hover:scale-105 transition-transform"
+										>
+											<p className="font-semibold">{skill}</p>
+										</div>
+									))}
+								</div>
+							</section>
 						</div>
 					</article>
 				</section>

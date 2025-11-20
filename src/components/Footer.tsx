@@ -1,6 +1,7 @@
 import Email from '../assets/email.png';
 import GitHub from '../assets/github.png';
 import LinkedIn from '../assets/linkedin.png';
+import Placeholder from '../assets/placeholder.png';
 
 const socials = [
 	{ name: 'GitHub', image: GitHub, link: 'https://github.com/yourusername' },
@@ -32,7 +33,7 @@ export default function Footer() {
 								className="h-6 w-6 object-contain"
 								onError={(e) => {
 									console.warn('Social icon failed to load, using placeholder');
-									(e.currentTarget as HTMLImageElement).src = 'https://via.placeholder.com/24';
+									(e.currentTarget as HTMLImageElement).src = Placeholder;
 								}}
 							/>
 						</a>
