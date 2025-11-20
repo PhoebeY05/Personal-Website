@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import AboutMe from './pages/AboutMe';
 import Footer from './components/Footer';
+import { Meteors } from '@/components/magicui/meteors';
 
 function App() {
 	return (
@@ -9,6 +10,7 @@ function App() {
 			<Navbar />
 			{/* outer flex centers the inner box */}
 			<div className="flex justify-center">
+				<Meteors />
 				{/* constrained, responsive content area that will be centered */}
 				<div className="max-w-6xl w-full px-4">
 					<Routes>
