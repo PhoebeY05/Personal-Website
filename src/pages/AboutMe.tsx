@@ -1,7 +1,9 @@
+import { NumberTicker } from '@/components/ui/number-ticker';
 import type { JSX } from 'react';
 import Sketch from '../assets/Sketch.png'; // Profile image
 import Placeholder from '../assets/placeholder.png';
 import SkillProgress from '../components/SkillProgress';
+import { TypingAnimation } from '../components/ui/typing-animation';
 import { skills, type Skill } from '../data/skills';
 
 export default function AboutMe(): JSX.Element {
@@ -19,43 +21,67 @@ export default function AboutMe(): JSX.Element {
 				{/* Hero Section */}
 				<section className="text-center mb-12">
 					<h1 className="text-5xl md:text-6xl font-bold mb-2">Hi, I'm Phoebe! 👋</h1>
-					<p className="text-xl md:text-2xl text-brand-muted">
+					<TypingAnimation className="text-2xl font-bold mb-6 text-center md:text-left" typeSpeed={50}>
 						Aspiring product creator exploring the intersection of technology and practical solutions
-					</p>
+					</TypingAnimation>
 				</section>
 
 				{/* About Section: Two-column layout */}
-				<section className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-12">
+				<section className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-8">
 					{/* Left column: Profile card */}
 					<aside className="md:col-span-1">
-						<div className="bg-brand-card rounded-xl p-6 shadow-sm">
+						<div>
 							<img
 								src={Sketch}
 								alt="Profile"
 								loading="lazy"
-								className="w-full rounded-lg mb-4 object-cover"
+								className="h-full rounded-lg mb-4 object-cover"
 								onError={(e) => {
 									console.warn('Profile image failed to load, using placeholder');
 									(e.currentTarget as HTMLImageElement).src = Placeholder;
 								}}
 							/>
-							<h2 className="text-2xl font-semibold">Phoebe Yap</h2>
-							<p className="text-brand-muted mt-2">
-								Curious and persistent problem-solver with a passion for programming, AI, web, and app development.
-							</p>
 						</div>
 					</aside>
 
 					{/* Right column: About paragraph */}
 					<article className="md:col-span-2">
 						<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
-							<h2 className="text-3xl font-bold mb-6 text-center md:text-left">About Me</h2>
+							<h2 className="text-2xl font-bold mb-6 text-center md:text-left">About Me</h2>
 							<p>
 								I thrive in structured, hands-on projects where I can create practical solutions, and I enjoy learning
 								through experience rather than memorization. While I’m detail-oriented and love refining ideas, I also
 								embrace challenges that push me out of my comfort zone. Beyond tech, I’m reflective, empathetic in
 								thought, and constantly looking for ways to grow and improve.
 							</p>
+						</div>
+						<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
+							<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-8">
+								{/* centered card */}
+								<aside className="md:col-span-1">
+									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
+										<NumberTicker value={6} className="text-4xl font-extrabold tracking-tight text-brand-text" />
+										<p className="text-sm font-medium text-brand-muted">Projects</p>
+									</div>
+								</aside>
+								<aside className="md:col-span-1">
+									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
+										<NumberTicker
+											value={4.93}
+											dir="up"
+											decimalPlaces={2}
+											className="text-4xl font-extrabold tracking-tight text-brand-text"
+										/>
+										<p className="text-sm font-medium text-brand-muted">/5.00 CAP</p>
+									</div>
+								</aside>
+								<aside className="md:col-span-1">
+									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
+										<NumberTicker value={2} className="text-4xl font-extrabold tracking-tight text-brand-text" />
+										<p className="text-sm font-medium text-brand-muted">Internships</p>
+									</div>
+								</aside>
+							</div>
 						</div>
 					</article>
 				</section>
