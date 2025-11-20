@@ -1,9 +1,17 @@
 import type { JSX } from 'react';
 import Sketch from '../assets/Sketch.png'; // Profile image
 import Placeholder from '../assets/placeholder.png';
+import SkillProgress from '../components/SkillProgress';
+import { skills, type Skill } from '../data/skills';
 
 export default function AboutMe(): JSX.Element {
-	const skills = ['Python', 'Flask', 'SQL', 'HTML/CSS/JS', 'Cybersecurity', 'AI/ML', 'React', 'App Development'];
+	// group skills by type
+	const grouped = skills.reduce<Record<string, Skill[]>>((acc, s) => {
+		(acc[s.type] ||= []).push(s);
+		return acc;
+	}, {});
+
+	const types = Object.keys(grouped);
 
 	return (
 		<main className="min-h-screen bg-brand-bg text-brand-text p-6 md:p-12">
@@ -49,23 +57,29 @@ export default function AboutMe(): JSX.Element {
 								thought, and constantly looking for ways to grow and improve.
 							</p>
 						</div>
-						<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4">
-							{/* Skills Section*/}
-							<section>
-								<h2 className="text-3xl font-bold mb-6 text-center md:text-left">Skills</h2>
-								<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-									{skills.map((skill) => (
-										<div
-											key={skill}
-											className="bg-brand-accent p-4 rounded-lg shadow-sm text-center hover:scale-105 transition-transform"
-										>
-											<p className="font-semibold">{skill}</p>
+					</article>
+				</section>
+
+				{/* Skills Section*/}
+				<section className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4">
+					<h2 className="text-3xl font-bold mb-6 text-center md:text-left">Skills</h2>
+
+					{/* stacked subcards (vertical) */}
+					<div className="flex flex-col gap-4">
+						{types.map((type) => (
+							<div key={type} className="bg-brand-card/80 p-4 rounded-xl shadow-sm w-full">
+								<h3 className="text-lg text-brand-text font-semibold mb-3">{type}</h3>
+								{/* matrix: 1 / 2 / 3 columns (mobile → sm → md+) */}
+								<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+									{grouped[type].map((skill) => (
+										<div key={skill.name} className="p-2 bg-brand-card rounded-md">
+											<SkillProgress {...skill} />
 										</div>
 									))}
 								</div>
-							</section>
-						</div>
-					</article>
+							</div>
+						))}
+					</div>
 				</section>
 			</div>
 		</main>
