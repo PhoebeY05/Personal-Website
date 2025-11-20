@@ -4,6 +4,6 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	// base must be the repo name for GitHub project pages
-	base: '/Personal-Website/',
+	base: './',
 	plugins: [react(), tailwindcss()],
 });
