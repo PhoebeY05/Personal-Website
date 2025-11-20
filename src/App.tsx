@@ -1,16 +1,19 @@
+import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import { Routes } from 'react-router-dom';
+import AboutMe from './pages/AboutMe';
 
 function App() {
 	return (
 		<>
 			<Navbar />
-			<div className="container">
-				<Routes>
-					{/* <Route path="/" element={<Home />} />
-					<Route path="/about" element={<About />} />
-					<Route path="/contact" element={<Contact />} /> */}
-				</Routes>
+			{/* outer flex centers the inner box */}
+			<div className="flex justify-center">
+				{/* constrained, responsive content area that will be centered */}
+				<div className="max-w-6xl w-full px-4">
+					<Routes>
+						<Route path="/" element={<AboutMe />} />
+					</Routes>
+				</div>
 			</div>
 		</>
 	);

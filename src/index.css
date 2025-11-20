@@ -41,3 +41,18 @@
 	/* Optional: gradient utility */
 	--color-brand-gradient: linear-gradient(135deg, var(--accent), var(--react-accent));
 }
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	background-color: var(--bg);
+	color: var(--text);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* ensure the root app can grow to full height */
+#root {
+	min-height: 100%;
+}

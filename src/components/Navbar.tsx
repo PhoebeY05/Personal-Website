@@ -1,12 +1,13 @@
 // Modified from example in
-// Tailwind website (https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/navbars)
+// Flowbite website (https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/navbars)
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useTheme } from '../contexts/useTheme';
+import { NavLink } from 'react-router-dom';
 
 const navigation = [
-	{ name: 'About Me', href: 'aboutme', current: true },
+	{ name: 'About Me', href: '', current: true },
 	{ name: 'Projects', href: 'projects', current: false },
 	{ name: 'Experience', href: 'experience', current: false },
 	{ name: 'Competitions', href: 'competitions', current: false },
@@ -39,10 +40,9 @@ export default function Navbar() {
 						<div className="hidden sm:ml-6 sm:block">
 							<div className="flex space-x-4">
 								{navigation.map((item) => (
-									<a
+									<NavLink
 										key={item.name}
-										href={item.href}
-										aria-current={item.current ? 'page' : undefined}
+										to={item.href}
 										className={classNames(
 											item.current
 												? 'bg-brand-card text-brand-text'
@@ -51,7 +51,7 @@ export default function Navbar() {
 										)}
 									>
 										{item.name}
-									</a>
+									</NavLink>
 								))}
 							</div>
 						</div>
