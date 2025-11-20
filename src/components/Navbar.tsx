@@ -6,10 +6,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useTheme } from '../contexts/useTheme';
 
 const navigation = [
-	{ name: 'About Me', href: '#', current: true },
-	{ name: 'Projects', href: '#', current: false },
-	{ name: 'Experience', href: '#', current: false },
-	{ name: 'Competitions', href: '#', current: false },
+	{ name: 'About Me', href: 'aboutme', current: true },
+	{ name: 'Projects', href: 'projects', current: false },
+	{ name: 'Experience', href: 'experience', current: false },
+	{ name: 'Competitions', href: 'competitions', current: false },
 ];
 
 function classNames(...classes: string[]) {
