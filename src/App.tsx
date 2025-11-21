@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import AboutMe from './pages/AboutMe';
 import Footer from './components/Footer';
 import Background from './components/Background';
+import Projects from './pages/Projects';
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 					{/* constrained, responsive content area that will be centered */}
 					<Routes>
 						<Route path="/" element={<AboutMe />} />
+						<Route path="/projects" element={<Projects />} />
 					</Routes>
 				</div>
 			</Background>
