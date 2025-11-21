@@ -27,21 +27,21 @@ export default function AboutMe(): JSX.Element {
 					<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">
 						Hi, I'm <AuroraText speed={2}>Phoebe</AuroraText>! 👋
 					</h1>
-					<HyperText className="text-lg font-bold mb-6 text-center md:text-left">
+					<HyperText className="text-lg font-bold mb-6 text-center">
 						Aspiring product creator exploring the intersection of technology and practical solutions
 					</HyperText>
 				</section>
 
 				{/* About Section: Two-column layout */}
-				<section className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-8">
+				<section className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch mb-8">
 					{/* Left column: Profile card */}
 					<article className="md:col-span-1">
-						<div>
+						<div className="h-full shadow-2xl">
 							<img
 								src={Sketch}
 								alt="Profile"
 								loading="lazy"
-								className="h-full rounded-lg mb-4 object-cover"
+								className="w-full h-full rounded-lg object-cover"
 								onError={(e) => {
 									console.warn('Profile image failed to load, using placeholder');
 									(e.currentTarget as HTMLImageElement).src = Placeholder;
@@ -51,9 +51,9 @@ export default function AboutMe(): JSX.Element {
 					</article>
 
 					{/* Right column: About paragraph */}
-					<article className="md:col-span-2">
-						<AppearOnScroll>
-							<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
+					<article className="md:col-span-2 flex flex-col h-full justify-space-between">
+						<AppearOnScroll className="flex-1">
+							<div className="bg-brand-card rounded-xl p-6 shadow-2xl space-y-4">
 								<h2 className="relative text-2xl font-bold mb-6 text-center md:text-left">
 									<Highlighter action="box" color="#87CEFA">
 										About Me
@@ -67,13 +67,13 @@ export default function AboutMe(): JSX.Element {
 								</p>
 							</div>
 						</AppearOnScroll>
-						<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
+						<div className="bg-brand-card rounded-xl p-6 shadow-2xl flex-col justify-space-between h-1/2">
 							<h2 className="relative text-2xl font-bold mb-6 text-center md:text-left">
 								<Highlighter action="underline" color="#FF9800">
 									Currently
 								</Highlighter>
 							</h2>
-							<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-8">
+							<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
 								{/* centered card */}
 								<AppearOnScroll className="md:col-span-1">
 									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
@@ -104,7 +104,7 @@ export default function AboutMe(): JSX.Element {
 				</section>
 
 				{/* Skills Section*/}
-				<AppearOnScroll className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4">
+				<AppearOnScroll className="bg-brand-card rounded-xl p-6 shadow-2xl space-y-4">
 					<h2 className="text-3xl font-bold mb-6 text-center md:text-left">Skills</h2>
 
 					{/* stacked subcards (vertical) */}
@@ -112,7 +112,7 @@ export default function AboutMe(): JSX.Element {
 						{types.map((type) => (
 							<div
 								key={type}
-								className="group bg-brand-card p-4 rounded-xl shadow-lg outline-1 outline-brand-react w-full hover:bg-brand-secondary hover:outline-brand-secondary"
+								className="group bg-brand-card p-4 mb-2 rounded-xl shadow-lg outline-1 outline-brand-react w-full hover:bg-brand-secondary hover:outline-brand-secondary"
 							>
 								<h3 className="text-lg text-brand-text font-semibold mb-3">{type}</h3>
 								{/* matrix: 1 / 2 / 3 columns (mobile → sm → md+) */}
