@@ -54,10 +54,7 @@ export default function AboutMe(): JSX.Element {
 
 					{/* Right column: About paragraph */}
 					<article className="md:col-span-2">
-						<AppearOnScroll
-							className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4"
-							/* uses defaults: initial, whileInView, viewport, transition */
-						>
+						<AppearOnScroll>
 							<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
 								<h2 className="text-2xl font-bold mb-6 text-center md:text-left">About Me</h2>
 								<p>
@@ -67,52 +64,40 @@ export default function AboutMe(): JSX.Element {
 									thought, and constantly looking for ways to grow and improve.
 								</p>
 							</div>
-							<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
-								<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-8">
-									{/* centered card */}
-									<AppearOnScroll
-										className="md:col-span-1"
-										/* uses defaults: initial, whileInView, viewport, transition */
-									>
-										<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
-											<NumberTicker value={6} className="text-4xl font-extrabold tracking-tight text-brand-text" />
-											<p className="text-sm font-medium text-brand-muted">Projects</p>
-										</div>
-									</AppearOnScroll>
-									<AppearOnScroll
-										className="md:col-span-1"
-										/* uses defaults: initial, whileInView, viewport, transition */
-									>
-										<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
-											<NumberTicker
-												value={4.93}
-												dir="up"
-												decimalPlaces={2}
-												className="text-4xl font-extrabold tracking-tight text-brand-text"
-											/>
-											<p className="text-sm font-medium text-brand-muted">/5.00 CAP</p>
-										</div>
-									</AppearOnScroll>
-									<AppearOnScroll
-										className="md:col-span-1"
-										/* uses defaults: initial, whileInView, viewport, transition */
-									>
-										<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
-											<NumberTicker value={2} className="text-4xl font-extrabold tracking-tight text-brand-text" />
-											<p className="text-sm font-medium text-brand-muted">Internships</p>
-										</div>
-									</AppearOnScroll>
-								</div>
-							</div>
 						</AppearOnScroll>
+						<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
+							<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-8">
+								{/* centered card */}
+								<AppearOnScroll className="md:col-span-1">
+									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
+										<NumberTicker value={6} className="text-4xl font-extrabold tracking-tight text-brand-text" />
+										<p className="text-sm font-medium text-brand-muted">Projects</p>
+									</div>
+								</AppearOnScroll>
+								<AppearOnScroll className="md:col-span-1">
+									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
+										<NumberTicker
+											value={4.93}
+											dir="up"
+											decimalPlaces={2}
+											className="text-4xl font-extrabold tracking-tight text-brand-text"
+										/>
+										<p className="text-sm font-medium text-brand-muted">/5.00 CAP</p>
+									</div>
+								</AppearOnScroll>
+								<AppearOnScroll className="md:col-span-1">
+									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
+										<NumberTicker value={2} className="text-4xl font-extrabold tracking-tight text-brand-text" />
+										<p className="text-sm font-medium text-brand-muted">Internships</p>
+									</div>
+								</AppearOnScroll>
+							</div>
+						</div>
 					</article>
 				</section>
 
 				{/* Skills Section*/}
-				<AppearOnScroll
-					className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4"
-					/* uses defaults: initial, whileInView, viewport, transition */
-				>
+				<AppearOnScroll className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4">
 					<h2 className="text-3xl font-bold mb-6 text-center md:text-left">Skills</h2>
 
 					{/* stacked subcards (vertical) */}
