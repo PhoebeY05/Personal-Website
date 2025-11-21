@@ -26,6 +26,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          
+      - name: Check Deprecated Dependencies
+        uses: tinovyatkin/action-check-deprecated-js-deps@v2
 
       - name: Install Dependencies
         run: npm install
