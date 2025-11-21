@@ -4,9 +4,9 @@ import LinkedIn from '../assets/linkedin.png';
 import Placeholder from '../assets/placeholder.png';
 
 const socials = [
-	{ name: 'GitHub', image: GitHub, link: 'https://github.com/yourusername' },
-	{ name: 'LinkedIn', image: LinkedIn, link: 'https://linkedin.com/in/yourusername' },
-	{ name: 'Email', image: Email, link: 'mailto:youremail@example.com' },
+	{ name: 'GitHub', image: GitHub, link: 'https://https://github.com/PhoebeY05' },
+	{ name: 'LinkedIn', image: LinkedIn, link: 'https://www.linkedin.com/in/phoebeyap1305/' },
+	{ name: 'Email', image: Email, link: 'mailto:Phoebe1305@outlook.com' },
 ];
 
 export default function Footer() {
