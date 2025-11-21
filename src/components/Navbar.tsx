@@ -47,8 +47,8 @@ export default function Navbar() {
 										className={({ isActive }: { isActive: boolean }) =>
 											classNames(
 												isActive
-													? 'bg-brand-card text-brand-text'
-													: 'text-brand-text hover:bg-brand-card hover:text-brand-muted',
+													? 'bg-brand-card text-brand-text font-mono'
+													: 'text-brand-text hover:bg-brand-card hover:text-brand-muted font-mono',
 												'rounded-md px-3 py-2 text-sm font-medium'
 											)
 										}
@@ -77,8 +77,8 @@ export default function Navbar() {
 							className={({ isActive }: { isActive: boolean }) =>
 								classNames(
 									isActive
-										? 'bg-brand-card text-brand-text'
-										: 'text-brand-text hover:bg-brand-card hover:text-brand-muted',
+										? 'bg-brand-card text-brand-text font-mono'
+										: 'text-brand-text hover:bg-brand-card hover:text-brand-muted font-mono',
 									'rounded-md px-3 py-2 text-sm font-medium text-center'
 								)
 							}
