@@ -3,8 +3,10 @@ import type { JSX } from 'react';
 import Sketch from '../assets/Sketch.png'; // Profile image
 import Placeholder from '../assets/placeholder.png';
 import SkillProgress from '../components/SkillProgress';
-import { TypingAnimation } from '../components/ui/typing-animation';
 import { skills, type Skill } from '../data/skills';
+import { AuroraText } from '@/components/ui/aurora-text';
+import { BlurFade } from '@/components/ui/blur-fade';
+import { HyperText } from '@/components/ui/hyper-text';
 
 export default function AboutMe(): JSX.Element {
 	// group skills by type
@@ -20,10 +22,16 @@ export default function AboutMe(): JSX.Element {
 			<div className="mx-auto max-w-6xl">
 				{/* Hero Section */}
 				<section className="text-center mb-12">
-					<h1 className="text-5xl md:text-6xl font-bold mb-2">Hi, I'm Phoebe! 👋</h1>
-					<TypingAnimation className="text-2xl font-bold mb-6 text-center md:text-left" typeSpeed={50}>
+					{/* responsive sizes: base -> sm -> md */}
+					<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">
+						Hi, I'm <AuroraText speed={2}>Phoebe</AuroraText>! 👋
+					</h1>
+					{/* <AnimatedGradientText className="text-2xl font-bold mb-6 text-center md:text-left">
 						Aspiring product creator exploring the intersection of technology and practical solutions
-					</TypingAnimation>
+					</AnimatedGradientText> */}
+					<HyperText className="text-lg font-bold mb-6 text-center md:text-left">
+						Aspiring product creator exploring the intersection of technology and practical solutions
+					</HyperText>
 				</section>
 
 				{/* About Section: Two-column layout */}
@@ -58,29 +66,44 @@ export default function AboutMe(): JSX.Element {
 						<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
 							<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-8">
 								{/* centered card */}
-								<aside className="md:col-span-1">
-									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
-										<NumberTicker value={6} className="text-4xl font-extrabold tracking-tight text-brand-text" />
-										<p className="text-sm font-medium text-brand-muted">Projects</p>
-									</div>
-								</aside>
-								<aside className="md:col-span-1">
-									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
-										<NumberTicker
-											value={4.93}
-											dir="up"
-											decimalPlaces={2}
-											className="text-4xl font-extrabold tracking-tight text-brand-text"
-										/>
-										<p className="text-sm font-medium text-brand-muted">/5.00 CAP</p>
-									</div>
-								</aside>
-								<aside className="md:col-span-1">
-									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
-										<NumberTicker value={2} className="text-4xl font-extrabold tracking-tight text-brand-text" />
-										<p className="text-sm font-medium text-brand-muted">Internships</p>
-									</div>
-								</aside>
+								<BlurFade delay={0.5} inView>
+									<aside className="md:col-span-1">
+										<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
+											<NumberTicker
+												value={6}
+												delay={0.75}
+												className="text-4xl font-extrabold tracking-tight text-brand-text"
+											/>
+											<p className="text-sm font-medium text-brand-muted">Projects</p>
+										</div>
+									</aside>
+								</BlurFade>
+								<BlurFade delay={2} inView>
+									<aside className="md:col-span-1">
+										<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
+											<NumberTicker
+												value={4.93}
+												delay={2.25}
+												dir="up"
+												decimalPlaces={2}
+												className="text-4xl font-extrabold tracking-tight text-brand-text"
+											/>
+											<p className="text-sm font-medium text-brand-muted">/5.00 CAP</p>
+										</div>
+									</aside>
+								</BlurFade>
+								<BlurFade delay={5} inView>
+									<aside className="md:col-span-1">
+										<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
+											<NumberTicker
+												value={2}
+												delay={5.25}
+												className="text-4xl font-extrabold tracking-tight text-brand-text"
+											/>
+											<p className="text-sm font-medium text-brand-muted">Internships</p>
+										</div>
+									</aside>
+								</BlurFade>
 							</div>
 						</div>
 					</article>
