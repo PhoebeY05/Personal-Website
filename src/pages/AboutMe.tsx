@@ -3,7 +3,7 @@ import { Highlighter } from '@/components/ui/highlighter';
 import { HyperText } from '@/components/ui/hyper-text';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import type { JSX } from 'react';
-import Sketch from '../assets/Sketch.png'; // Profile image
+import Sketch from '../assets/sketch.png'; // Profile image
 import Placeholder from '../assets/placeholder.png';
 import AppearOnScroll from '../components/AppearOnScroll'; // new wrapper for motion.section
 import SkillProgress from '../components/SkillProgress';
