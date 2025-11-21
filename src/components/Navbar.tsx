@@ -3,8 +3,9 @@
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { useTheme } from '../contexts/useTheme';
+// import { useTheme } from '../contexts/useTheme';
 import { NavLink } from 'react-router-dom';
+import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler';
 
 const navigation = [
 	{ name: 'About Me', href: '', current: true },
@@ -18,7 +19,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navbar() {
-	const { theme, toggleTheme } = useTheme();
+	// const { theme, toggleTheme } = useTheme();
 	return (
 		<Disclosure
 			as="nav"
@@ -59,14 +60,7 @@ export default function Navbar() {
 
 					{/* right-side controls: keep in flow (not absolute) so toggle aligns properly */}
 					<div className="flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-						{/* Theme toggle placed here (no absolute positioning) */}
-						<button
-							aria-label="Toggle theme"
-							onClick={toggleTheme}
-							className="ml-4 p-2 px-3 rounded-md text-brand-text hover:bg-brand-card focus:outline-2 focus:outline-offset-2 focus:outline-brand-react"
-						>
-							{theme === 'light' ? '🌙' : '☀️'}
-						</button>
+						<AnimatedThemeToggler />
 					</div>
 				</div>
 			</div>
