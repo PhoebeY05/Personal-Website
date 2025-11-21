@@ -1,15 +1,17 @@
 // Modified from example in
-// Tailwind website (https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/navbars)
+// Flowbite website (https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/navbars)
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { useTheme } from '../contexts/useTheme';
+// import { useTheme } from '../contexts/useTheme';
+import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler';
+import { NavLink } from 'react-router-dom';
 
 const navigation = [
-	{ name: 'About Me', href: 'aboutme', current: true },
-	{ name: 'Projects', href: 'projects', current: false },
-	{ name: 'Experience', href: 'experience', current: false },
-	{ name: 'Competitions', href: 'competitions', current: false },
+	{ name: 'About Me', href: '' },
+	{ name: 'Projects', href: 'projects' },
+	{ name: 'Experience', href: 'experience' },
+	{ name: 'Competitions', href: 'competitions' },
 ];
 
 function classNames(...classes: string[]) {
@@ -17,7 +19,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navbar() {
-	const { theme, toggleTheme } = useTheme();
+	// const { theme, toggleTheme } = useTheme();
 	return (
 		<Disclosure
 			as="nav"
@@ -39,19 +41,20 @@ export default function Navbar() {
 						<div className="hidden sm:ml-6 sm:block">
 							<div className="flex space-x-4">
 								{navigation.map((item) => (
-									<a
+									<NavLink
 										key={item.name}
-										href={item.href}
-										aria-current={item.current ? 'page' : undefined}
-										className={classNames(
-											item.current
-												? 'bg-brand-card text-brand-text'
-												: 'text-brand-text hover:bg-brand-card hover:text-brand-muted',
-											'rounded-md px-3 py-2 text-sm font-medium'
-										)}
+										to={item.href}
+										className={({ isActive }: { isActive: boolean }) =>
+											classNames(
+												isActive
+													? 'bg-brand-card text-brand-text'
+													: 'text-brand-text hover:bg-brand-card hover:text-brand-muted',
+												'rounded-md px-3 py-2 text-sm font-medium'
+											)
+										}
 									>
 										{item.name}
-									</a>
+									</NavLink>
 								))}
 							</div>
 						</div>
@@ -59,32 +62,26 @@ export default function Navbar() {
 
 					{/* right-side controls: keep in flow (not absolute) so toggle aligns properly */}
 					<div className="flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-						{/* Theme toggle placed here (no absolute positioning) */}
-						<button
-							aria-label="Toggle theme"
-							onClick={toggleTheme}
-							className="ml-4 p-2 px-3 rounded-md text-brand-text hover:bg-brand-card focus:outline-2 focus:outline-offset-2 focus:outline-brand-react"
-						>
-							{theme === 'light' ? '🌙' : '☀️'}
-						</button>
+						<AnimatedThemeToggler />
 					</div>
 				</div>
 			</div>
 
 			<DisclosurePanel className="sm:hidden">
-				<div className="space-y-1 px-2 pt-2 pb-3">
+				<div className="grid grid-cols-2 grid-rows-2 gap-2 px-2 pt-2 pb-3">
 					{navigation.map((item) => (
 						<DisclosureButton
 							key={item.name}
-							as="a"
-							href={item.href}
-							aria-current={item.current ? 'page' : undefined}
-							className={classNames(
-								item.current
-									? 'bg-brand-card text-brand-text'
-									: 'text-brand-text hover:bg-brand-card hover:text-brand-muted',
-								'rounded-md px-3 py-2 text-sm font-medium'
-							)}
+							as={NavLink}
+							to={item.href}
+							className={({ isActive }: { isActive: boolean }) =>
+								classNames(
+									isActive
+										? 'bg-brand-card text-brand-text'
+										: 'text-brand-text hover:bg-brand-card hover:text-brand-muted',
+									'rounded-md px-3 py-2 text-sm font-medium text-center'
+								)
+							}
 						>
 							{item.name}
 						</DisclosureButton>
