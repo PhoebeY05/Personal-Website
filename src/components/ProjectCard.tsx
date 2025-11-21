@@ -1,21 +1,26 @@
-import { ExternalLink, PlayCircle } from 'lucide-react';
+import { Code, ExternalLink, PlayCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import Tag from './Tag';
 
 type ProjectCardProps = {
 	name: string;
 	description: string;
 	month: string;
 	link?: string;
+	github?: string;
 	demo?: string[];
 	tags: string[];
 };
 
-export default function ProjectCard({ name, description, month, link, demo = [], tags }: ProjectCardProps) {
+export default function ProjectCard({ name, description, month, link, github, demo = [], tags }: ProjectCardProps) {
+	const projectSlug = name.toLowerCase().replace(/\s+/g, '-');
+
 	return (
 		<div className="group rounded-2xl border p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 bg-brand-card my-4">
 			{/* Title + Date */}
 			<div className="flex items-start justify-between mb-3">
 				<h3 className="text-xl font-semibold text-brand-text group-hover:text-brand-accent transition-colors">
-					{name}
+					<Link to={`/projects/${projectSlug}`}>{name}</Link>
 				</h3>
 				<span className="text-sm text-brand-muted">{month}</span>
 			</div>
@@ -26,17 +31,23 @@ export default function ProjectCard({ name, description, month, link, demo = [],
 			{/* Tags */}
 			<div className="flex flex-wrap gap-2 mb-4">
 				{tags.map((tag, index) => (
-					<span
-						key={index}
-						className="text-xs px-2 py-1 rounded-full bg-brand-secondary text-brand-text border border-brand-accent"
-					>
-						{tag}
-					</span>
+					<Tag name={tag} index={index} />
 				))}
 			</div>
 
 			{/* Footer */}
 			<div className="flex items-center gap-4 pt-2">
+				{github && (
+					<a
+						href={github}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="flex items-center gap-1 text-sm text-brand-accent hover:underline"
+					>
+						<Code size={18} />
+						Source Code
+					</a>
+				)}
 				{link && (
 					<a
 						href={link}

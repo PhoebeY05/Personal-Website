@@ -1,8 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
+import Background from './components/Background';
+import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import AboutMe from './pages/AboutMe';
-import Footer from './components/Footer';
-import Background from './components/Background';
+import IndividualProject from './pages/IndividualProject';
 import Projects from './pages/Projects';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 					<Routes>
 						<Route path="/" element={<AboutMe />} />
 						<Route path="/projects" element={<Projects />} />
+						<Route path="/projects/:name" element={<IndividualProject />} />
 					</Routes>
 				</div>
 			</Background>
