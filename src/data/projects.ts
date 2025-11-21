@@ -1,25 +1,25 @@
 // Reading Records demos
-const ReadingRecords = '/demos/ReadingRecords/reading-records.mp4';
+const ReadingRecords = '/demos/ReadingRecords/reading_records.mp4';
 
 // AI Content Generator demos
-const AIContentGenerator1 = '/demos/AIContentGenerator/ai-content-generator.mov';
-const AIContentGenerator2 = '/demos/AIContentGenerator/ai-content-generator.png';
+const AIContentGenerator1 = '/demos/ContentGenerator/content_generator.mov';
+const AIContentGenerator2 = '/demos/ContentGenerator/content_generator.png';
 
 // Blackjack Calculator demos
-const BlackjackCalculator1 = '/demos/BlackjackCalculator/home.png';
-const BlackjackCalculator2 = '/demos/BlackjackCalculator/name.png';
-const BlackjackCalculator3 = '/demos/BlackjackCalculator/mode.png';
-const BlackjackCalculator4 = '/demos/BlackjackCalculator/combo.png';
-const BlackjackCalculator5 = '/demos/BlackjackCalculator/standard.png';
-const BlackjackCalculator6 = '/demos/BlackjackCalculator/special.png';
-const BlackjackCalculator7 = '/demos/BlackjackCalculator/number.png';
-const BlackjackCalculator8 = '/demos/BlackjackCalculator/score.png';
+const BlackjackCalculator1 = '/demos/BlackjackScoreCalculator/home.png';
+const BlackjackCalculator2 = '/demos/BlackjackScoreCalculator/name.png';
+const BlackjackCalculator3 = '/demos/BlackjackScoreCalculator/mode.png';
+const BlackjackCalculator4 = '/demos/BlackjackScoreCalculator/combo.png';
+const BlackjackCalculator5 = '/demos/BlackjackScoreCalculator/standard.png';
+const BlackjackCalculator6 = '/demos/BlackjackScoreCalculator/special.png';
+const BlackjackCalculator7 = '/demos/BlackjackScoreCalculator/number.png';
+const BlackjackCalculator8 = '/demos/BlackjackScoreCalculator/score.png';
 
 // Telegram Bot demos
-const TelegramBot1 = '/demos/TelegramBot/start.png';
-const TelegramBot2 = '/demos/TelegramBot/cal.png';
-const TelegramBot3 = '/demos/TelegramBot/add.png';
-const TelegramBot4 = '/demos/TelegramBot/list.png';
+const TelegramBot1 = '/demos/TelegramBirthdayBot/start.png';
+const TelegramBot2 = '/demos/TelegramBirthdayBot/cal.png';
+const TelegramBot3 = '/demos/TelegramBirthdayBot/add.png';
+const TelegramBot4 = '/demos/TelegramBirthdayBot/list.png';
 
 export interface Project {
 	name: string;
