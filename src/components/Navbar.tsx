@@ -8,10 +8,10 @@ import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler';
 import { NavLink } from 'react-router-dom';
 
 const navigation = [
-	{ name: 'About Me', href: '', current: true },
-	{ name: 'Projects', href: 'projects', current: false },
-	{ name: 'Experience', href: 'experience', current: false },
-	{ name: 'Competitions', href: 'competitions', current: false },
+	{ name: 'About Me', href: '' },
+	{ name: 'Projects', href: 'projects' },
+	{ name: 'Experience', href: 'experience' },
+	{ name: 'Competitions', href: 'competitions' },
 ];
 
 function classNames(...classes: string[]) {
@@ -44,12 +44,14 @@ export default function Navbar() {
 									<NavLink
 										key={item.name}
 										to={item.href}
-										className={classNames(
-											item.current
-												? 'bg-brand-card text-brand-text'
-												: 'text-brand-text hover:bg-brand-card hover:text-brand-muted',
-											'rounded-md px-3 py-2 text-sm font-medium'
-										)}
+										className={({ isActive }: { isActive: boolean }) =>
+											classNames(
+												isActive
+													? 'bg-brand-card text-brand-text'
+													: 'text-brand-text hover:bg-brand-card hover:text-brand-muted',
+												'rounded-md px-3 py-2 text-sm font-medium'
+											)
+										}
 									>
 										{item.name}
 									</NavLink>
@@ -70,15 +72,16 @@ export default function Navbar() {
 					{navigation.map((item) => (
 						<DisclosureButton
 							key={item.name}
-							as="a"
-							href={item.href}
-							aria-current={item.current ? 'page' : undefined}
-							className={classNames(
-								item.current
-									? 'bg-brand-card text-brand-text'
-									: 'text-brand-text hover:bg-brand-card hover:text-brand-muted',
-								'rounded-md px-3 py-2 text-sm font-medium text-center'
-							)}
+							as={NavLink}
+							to={item.href}
+							className={({ isActive }: { isActive: boolean }) =>
+								classNames(
+									isActive
+										? 'bg-brand-card text-brand-text'
+										: 'text-brand-text hover:bg-brand-card hover:text-brand-muted',
+									'rounded-md px-3 py-2 text-sm font-medium text-center'
+								)
+							}
 						>
 							{item.name}
 						</DisclosureButton>
