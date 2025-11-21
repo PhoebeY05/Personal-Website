@@ -1,4 +1,5 @@
 import { AuroraText } from '@/components/ui/aurora-text';
+import { Highlighter } from '@/components/ui/highlighter';
 import { HyperText } from '@/components/ui/hyper-text';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import type { JSX } from 'react';
@@ -53,7 +54,11 @@ export default function AboutMe(): JSX.Element {
 					<article className="md:col-span-2">
 						<AppearOnScroll>
 							<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
-								<h2 className="text-2xl font-bold mb-6 text-center md:text-left">About Me</h2>
+								<h2 className="relative text-2xl font-bold mb-6 text-center md:text-left">
+									<Highlighter action="box" color="#87CEFA">
+										About Me
+									</Highlighter>
+								</h2>
 								<p>
 									I thrive in structured, hands-on projects where I can create practical solutions, and I enjoy learning
 									through experience rather than memorization. While I’m detail-oriented and love refining ideas, I also
@@ -63,6 +68,11 @@ export default function AboutMe(): JSX.Element {
 							</div>
 						</AppearOnScroll>
 						<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
+							<h2 className="relative text-2xl font-bold mb-6 text-center md:text-left">
+								<Highlighter action="underline" color="#FF9800">
+									Currently
+								</Highlighter>
+							</h2>
 							<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-8">
 								{/* centered card */}
 								<AppearOnScroll className="md:col-span-1">
@@ -100,13 +110,19 @@ export default function AboutMe(): JSX.Element {
 					{/* stacked subcards (vertical) */}
 					<div className="flex flex-col gap-4">
 						{types.map((type) => (
-							<div key={type} className="bg-brand-card p-4 rounded-xl shadow-lg outline-1 outline-brand-react w-full">
+							<div
+								key={type}
+								className="group bg-brand-card p-4 rounded-xl shadow-lg outline-1 outline-brand-react w-full hover:bg-brand-secondary hover:outline-brand-secondary"
+							>
 								<h3 className="text-lg text-brand-text font-semibold mb-3">{type}</h3>
 								{/* matrix: 1 / 2 / 3 columns (mobile → sm → md+) */}
-								<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+								<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 group-hover:bg-brand-secondary">
 									{grouped[type].map((skill) => (
 										// two-row card: top = label (can wrap), bottom = progress bar (SkillProgress renders only the bar)
-										<div key={skill.name} className="p-2 bg-brand-card rounded-md h-20 flex flex-col justify-between">
+										<div
+											key={skill.name}
+											className="p-2 bg-brand-card rounded-md h-20 flex flex-col justify-between group-hover:bg-brand-secondary"
+										>
 											<span className="text-sm font-medium text-brand-text leading-tight">{skill.name}</span>
 											<div>
 												<SkillProgress {...skill} />

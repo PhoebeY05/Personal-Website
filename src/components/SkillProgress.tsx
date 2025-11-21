@@ -17,7 +17,7 @@ export default function SkillProgress({ name, level }: Skill): JSX.Element {
 			>
 				{/* animated fill */}
 				<div
-					className="bg-brand-accent h-4 rounded-full transition-[width] duration-300 ease-in-out"
+					className="bg-brand-react h-4 rounded-full transition-[width] duration-300 ease-in-out"
 					style={{ width: `${percent}%` }}
 				/>
 			</div>
