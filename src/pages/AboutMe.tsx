@@ -98,8 +98,12 @@ export default function AboutMe(): JSX.Element {
 								{/* matrix: 1 / 2 / 3 columns (mobile → sm → md+) */}
 								<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
 									{grouped[type].map((skill) => (
-										<div key={skill.name} className="p-2 bg-brand-card rounded-md">
-											<SkillProgress {...skill} />
+										// two-row card: top = label (can wrap), bottom = progress bar (SkillProgress renders only the bar)
+										<div key={skill.name} className="p-2 bg-brand-card rounded-md h-20 flex flex-col justify-between">
+											<span className="text-sm font-medium text-brand-text leading-tight">{skill.name}</span>
+											<div>
+												<SkillProgress {...skill} />
+											</div>
 										</div>
 									))}
 								</div>
