@@ -1,12 +1,16 @@
 import Tag from '@/components/Tag';
+import Video from '@/components/Video';
 import { Code, ExternalLink } from 'lucide-react';
 import { Navigate, useParams } from 'react-router-dom';
-import { projects } from '../data/projects';
+import { isDemoVideo, projects } from '../data/projects';
 
 export default function ProjectPage() {
 	const { name: paramName } = useParams<{ name: string }>();
 
 	const project = projects.find((p) => p.name.toLowerCase().replace(/\s+/g, '-') === paramName);
+
+	const demoVideos = project?.demo.filter(isDemoVideo) ?? [];
+	const demoImages = project?.demo.filter((demo) => !isDemoVideo(demo)) ?? [];
 
 	if (!project) {
 		return <Navigate to="/projects" replace />;
@@ -73,13 +77,30 @@ export default function ProjectPage() {
 							</ul>
 						</div>
 					)} */}
-					{/* Images / Screenshots */}
-					{project.demo.length > 0 && (
+					{/* Images / Videos */}
+					{demoVideos.length > 0 && (
 						<div className="mb-12">
 							<h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Screenshots</h2>
 							<div className="grid sm:grid-cols-2 gap-6">
-								{project.demo.map((img, i) => (
-									<img key={i} src={img} alt={`${name} screenshot ${i + 1}`} className="rounded-xl border shadow-sm" />
+								{demoVideos.map((video, i) => (
+									<div key={i}>
+										<Video src={video} />
+									</div>
+								))}
+							</div>
+						</div>
+					)}
+					{demoImages.length > 0 && (
+						<div className="mb-12">
+							<h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Screenshots</h2>
+							<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+								{demoImages.map((img, i) => (
+									<img
+										key={i}
+										src={img}
+										alt={`${project.name} screenshot ${i + 1}`}
+										className="rounded-xl border shadow-sm"
+									/>
 								))}
 							</div>
 						</div>

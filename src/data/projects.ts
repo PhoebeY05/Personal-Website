@@ -1,3 +1,26 @@
+// Reading Records demos
+import ReadingRecords from '../assets/demos/ReadingRecords/reading-records.mp4';
+
+// AI Content Generator demos
+import AIContentGenerator1 from '../assets/demos/AIContentGenerator/ai-content-generator.mov';
+import AIContentGenerator2 from '../assets/demos/AIContentGenerator/ai-content-generator.png';
+
+// Blackjack Calculator demos
+import BlackjackCalculator1 from '../assets/demos/BlackjackCalculator/home.png';
+import BlackjackCalculator2 from '../assets/demos/BlackjackCalculator/name.png';
+import BlackjackCalculator3 from '../assets/demos/BlackjackCalculator/mode.png';
+import BlackjackCalculator4 from '../assets/demos/BlackjackCalculator/combo.png';
+import BlackjackCalculator5 from '../assets/demos/BlackjackCalculator/standard.png';
+import BlackjackCalculator6 from '../assets/demos/BlackjackCalculator/special.png';
+import BlackjackCalculator7 from '../assets/demos/BlackjackCalculator/number.png';
+import BlackjackCalculator8 from '../assets/demos/BlackjackCalculator/score.png';
+
+// Telegram Bot demos
+import TelegramBot1 from '../assets/demos/TelegramBot/start.png';
+import TelegramBot2 from '../assets/demos/TelegramBot/cal.png';
+import TelegramBot3 from '../assets/demos/TelegramBot/add.png';
+import TelegramBot4 from '../assets/demos/TelegramBot/list.png';
+
 export interface Project {
 	name: string;
 	description: string;
@@ -16,7 +39,7 @@ export const projects: Project[] = [
 		month: 'February 2024',
 		link: 'https://phoebe05.pythonanywhere.com/',
 		github: 'https://github.com/PhoebeY05/Reading-Records',
-		demo: ['CS50.mp4'],
+		demo: [ReadingRecords],
 		tags: ['Flask', 'Jinja', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'SQLite3'],
 	},
 	{
@@ -26,7 +49,7 @@ export const projects: Project[] = [
 		month: 'July 2024',
 		link: 'https://content-generator-xlck.onrender.com',
 		github: 'https://github.com/PhoebeY05/TikTok-TechJam',
-		demo: [],
+		demo: [AIContentGenerator1, AIContentGenerator2],
 		tags: ['Flask', 'Bootstrap', 'HuggingFace APIs', 'Gradio Client', 'MoviePy', 'FFmpeg', 'Python', 'OpenCV', 'PIL'],
 	},
 	{
@@ -36,7 +59,16 @@ export const projects: Project[] = [
 		month: 'January 2024',
 		link: '',
 		github: 'https://github.com/PhoebeY05/Blackjack-Score-Calculator',
-		demo: [],
+		demo: [
+			BlackjackCalculator1,
+			BlackjackCalculator2,
+			BlackjackCalculator3,
+			BlackjackCalculator4,
+			BlackjackCalculator5,
+			BlackjackCalculator6,
+			BlackjackCalculator7,
+			BlackjackCalculator8,
+		],
 		tags: ['React Native', 'Expo', 'JavaScript'],
 	},
 	{
@@ -56,11 +88,15 @@ export const projects: Project[] = [
 		month: 'May 2024',
 		link: 'https://t.me/bday_notification_bot',
 		github: 'https://github.com/PhoebeY05/Telegram-Birthday-Bot',
-		demo: [],
+		demo: [TelegramBot1, TelegramBot2, TelegramBot3, TelegramBot4],
 		tags: ['Python', 'Telegram API'],
 	},
 ];
 
 export function getProjectByName(name: string): Project {
 	return projects.find((project) => project.name === name)!;
+}
+
+export function isDemoVideo(demo: string) {
+	return demo.endsWith('.mp4') || demo.endsWith('.mov');
 }
