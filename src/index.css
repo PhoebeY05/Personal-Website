@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Playwrite+CZ:wght@100..400&display=swap');
 @import 'tailwindcss';
 
 @plugin 'tailwindcss-animate';
@@ -74,6 +75,10 @@
 
 	/* Optional: gradient utility */
 	--color-brand-gradient: linear-gradient(135deg, var(--accent), var(--react-accent));
+
+	/* Fonts */
+	--font-sans: "Delius", cursive; 
+
 }
 
 html,
