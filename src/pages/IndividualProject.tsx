@@ -80,7 +80,7 @@ export default function ProjectPage() {
 					{/* Images / Videos */}
 					{demoVideos.length > 0 && (
 						<div className="mb-12">
-							<h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Screenshots</h2>
+							<h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Videos</h2>
 							<div className="grid sm:grid-cols-2 gap-6">
 								{demoVideos.map((video, i) => (
 									<div key={i}>

@@ -10,10 +10,14 @@ import {
 	VideoPlayerTimeRange,
 	VideoPlayerVolumeRange,
 } from '@/components/ui/shadcn-io/video-player';
-export default function Video({ src: string }) {
+
+interface VideoProps {
+	src: string;
+}
+export default function Video(asset: VideoProps) {
 	return (
 		<VideoPlayer className="overflow-hidden rounded-lg border">
-			<VideoPlayerContent crossOrigin="" muted preload="auto" slot="media" src={src} />
+			<VideoPlayerContent crossOrigin="" muted preload="auto" slot="media" src={asset.src} />
 			<VideoPlayerControlBar>
 				<VideoPlayerPlayButton />
 				<VideoPlayerSeekBackwardButton />

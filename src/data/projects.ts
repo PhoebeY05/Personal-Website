@@ -1,25 +1,25 @@
 // Reading Records demos
-import ReadingRecords from '../assets/demos/ReadingRecords/reading-records.mp4';
+const ReadingRecords = '/demos/ReadingRecords/reading-records.mp4';
 
 // AI Content Generator demos
-import AIContentGenerator1 from '../assets/demos/AIContentGenerator/ai-content-generator.mov';
-import AIContentGenerator2 from '../assets/demos/AIContentGenerator/ai-content-generator.png';
+const AIContentGenerator1 = '/demos/AIContentGenerator/ai-content-generator.mov';
+const AIContentGenerator2 = '/demos/AIContentGenerator/ai-content-generator.png';
 
 // Blackjack Calculator demos
-import BlackjackCalculator1 from '../assets/demos/BlackjackCalculator/home.png';
-import BlackjackCalculator2 from '../assets/demos/BlackjackCalculator/name.png';
-import BlackjackCalculator3 from '../assets/demos/BlackjackCalculator/mode.png';
-import BlackjackCalculator4 from '../assets/demos/BlackjackCalculator/combo.png';
-import BlackjackCalculator5 from '../assets/demos/BlackjackCalculator/standard.png';
-import BlackjackCalculator6 from '../assets/demos/BlackjackCalculator/special.png';
-import BlackjackCalculator7 from '../assets/demos/BlackjackCalculator/number.png';
-import BlackjackCalculator8 from '../assets/demos/BlackjackCalculator/score.png';
+const BlackjackCalculator1 = '/demos/BlackjackCalculator/home.png';
+const BlackjackCalculator2 = '/demos/BlackjackCalculator/name.png';
+const BlackjackCalculator3 = '/demos/BlackjackCalculator/mode.png';
+const BlackjackCalculator4 = '/demos/BlackjackCalculator/combo.png';
+const BlackjackCalculator5 = '/demos/BlackjackCalculator/standard.png';
+const BlackjackCalculator6 = '/demos/BlackjackCalculator/special.png';
+const BlackjackCalculator7 = '/demos/BlackjackCalculator/number.png';
+const BlackjackCalculator8 = '/demos/BlackjackCalculator/score.png';
 
 // Telegram Bot demos
-import TelegramBot1 from '../assets/demos/TelegramBot/start.png';
-import TelegramBot2 from '../assets/demos/TelegramBot/cal.png';
-import TelegramBot3 from '../assets/demos/TelegramBot/add.png';
-import TelegramBot4 from '../assets/demos/TelegramBot/list.png';
+const TelegramBot1 = '/demos/TelegramBot/start.png';
+const TelegramBot2 = '/demos/TelegramBot/cal.png';
+const TelegramBot3 = '/demos/TelegramBot/add.png';
+const TelegramBot4 = '/demos/TelegramBot/list.png';
 
 export interface Project {
 	name: string;
@@ -45,7 +45,7 @@ export const projects: Project[] = [
 	{
 		name: 'AI Content Generator',
 		description:
-			'A generative-AI platform enabling users to create a complete video product—thumbnail, video, narration, and audio—from a single text prompt, with options to customise, regenerate, and combine content.',
+			'A generative-AI platform enabling users to create a complete video product—thumbnail, video, narration, and audio—= a single text prompt, with options to customise, regenerate, and combine content.',
 		month: 'July 2024',
 		link: 'https://content-generator-xlck.onrender.com',
 		github: 'https://github.com/PhoebeY05/TikTok-TechJam',
