@@ -77,8 +77,7 @@
 	--color-brand-gradient: linear-gradient(135deg, var(--accent), var(--react-accent));
 
 	/* Fonts */
-	--font-sans: "Delius", cursive; 
-
+	--font-sans: 'Delius', cursive;
 }
 
 html,
