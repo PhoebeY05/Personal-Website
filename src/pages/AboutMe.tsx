@@ -1,10 +1,10 @@
-import AppearOnScroll from '../components/AppearOnScroll'; // new wrapper for motion.section
 import { AuroraText } from '@/components/ui/aurora-text';
 import { HyperText } from '@/components/ui/hyper-text';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import type { JSX } from 'react';
 import Sketch from '../assets/Sketch.png'; // Profile image
 import Placeholder from '../assets/placeholder.png';
+import AppearOnScroll from '../components/AppearOnScroll'; // new wrapper for motion.section
 import SkillProgress from '../components/SkillProgress';
 import { skills, type Skill } from '../data/skills';
 
@@ -18,17 +18,14 @@ export default function AboutMe(): JSX.Element {
 	const types = Object.keys(grouped);
 
 	return (
-		<main className="min-h-screen bg-brand-bg text-brand-text p-6 md:p-12">
-			<div className="mx-auto max-w-6xl">
+		<main className="relative min-h-screen text-brand-text p-6 md:p-12 z-10">
+			<div className="mx-auto max-w-6xl ">
 				{/* Hero Section */}
-				<section className="text-center mb-12">
+				<section className="text-center mb-12 ">
 					{/* responsive sizes: base -> sm -> md */}
 					<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">
 						Hi, I'm <AuroraText speed={2}>Phoebe</AuroraText>! 👋
 					</h1>
-					{/* <AnimatedGradientText className="text-2xl font-bold mb-6 text-center md:text-left">
-						Aspiring product creator exploring the intersection of technology and practical solutions
-					</AnimatedGradientText> */}
 					<HyperText className="text-lg font-bold mb-6 text-center md:text-left">
 						Aspiring product creator exploring the intersection of technology and practical solutions
 					</HyperText>
@@ -37,7 +34,7 @@ export default function AboutMe(): JSX.Element {
 				{/* About Section: Two-column layout */}
 				<section className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-8">
 					{/* Left column: Profile card */}
-					<aside className="md:col-span-1">
+					<article className="md:col-span-1">
 						<div>
 							<img
 								src={Sketch}
@@ -50,7 +47,7 @@ export default function AboutMe(): JSX.Element {
 								}}
 							/>
 						</div>
-					</aside>
+					</article>
 
 					{/* Right column: About paragraph */}
 					<article className="md:col-span-2">
@@ -103,7 +100,7 @@ export default function AboutMe(): JSX.Element {
 					{/* stacked subcards (vertical) */}
 					<div className="flex flex-col gap-4">
 						{types.map((type) => (
-							<div key={type} className="bg-brand-card/80 p-4 rounded-xl shadow-sm w-full">
+							<div key={type} className="bg-brand-card p-4 rounded-xl shadow-lg outline-1 outline-brand-react w-full">
 								<h3 className="text-lg text-brand-text font-semibold mb-3">{type}</h3>
 								{/* matrix: 1 / 2 / 3 columns (mobile → sm → md+) */}
 								<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
