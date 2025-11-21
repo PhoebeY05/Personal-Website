@@ -1,12 +1,12 @@
+import AppearOnScroll from '../components/AppearOnScroll'; // new wrapper for motion.section
+import { AuroraText } from '@/components/ui/aurora-text';
+import { HyperText } from '@/components/ui/hyper-text';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import type { JSX } from 'react';
 import Sketch from '../assets/Sketch.png'; // Profile image
 import Placeholder from '../assets/placeholder.png';
 import SkillProgress from '../components/SkillProgress';
 import { skills, type Skill } from '../data/skills';
-import { AuroraText } from '@/components/ui/aurora-text';
-import { BlurFade } from '@/components/ui/blur-fade';
-import { HyperText } from '@/components/ui/hyper-text';
 
 export default function AboutMe(): JSX.Element {
 	// group skills by type
@@ -54,63 +54,65 @@ export default function AboutMe(): JSX.Element {
 
 					{/* Right column: About paragraph */}
 					<article className="md:col-span-2">
-						<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
-							<h2 className="text-2xl font-bold mb-6 text-center md:text-left">About Me</h2>
-							<p>
-								I thrive in structured, hands-on projects where I can create practical solutions, and I enjoy learning
-								through experience rather than memorization. While I’m detail-oriented and love refining ideas, I also
-								embrace challenges that push me out of my comfort zone. Beyond tech, I’m reflective, empathetic in
-								thought, and constantly looking for ways to grow and improve.
-							</p>
-						</div>
-						<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
-							<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-8">
-								{/* centered card */}
-								<BlurFade delay={0.5} inView>
-									<aside className="md:col-span-1">
+						<AppearOnScroll
+							className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4"
+							/* uses defaults: initial, whileInView, viewport, transition */
+						>
+							<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
+								<h2 className="text-2xl font-bold mb-6 text-center md:text-left">About Me</h2>
+								<p>
+									I thrive in structured, hands-on projects where I can create practical solutions, and I enjoy learning
+									through experience rather than memorization. While I’m detail-oriented and love refining ideas, I also
+									embrace challenges that push me out of my comfort zone. Beyond tech, I’m reflective, empathetic in
+									thought, and constantly looking for ways to grow and improve.
+								</p>
+							</div>
+							<div className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4 mb-3">
+								<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-8">
+									{/* centered card */}
+									<AppearOnScroll
+										className="md:col-span-1"
+										/* uses defaults: initial, whileInView, viewport, transition */
+									>
 										<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
-											<NumberTicker
-												value={6}
-												delay={0.75}
-												className="text-4xl font-extrabold tracking-tight text-brand-text"
-											/>
+											<NumberTicker value={6} className="text-4xl font-extrabold tracking-tight text-brand-text" />
 											<p className="text-sm font-medium text-brand-muted">Projects</p>
 										</div>
-									</aside>
-								</BlurFade>
-								<BlurFade delay={2} inView>
-									<aside className="md:col-span-1">
+									</AppearOnScroll>
+									<AppearOnScroll
+										className="md:col-span-1"
+										/* uses defaults: initial, whileInView, viewport, transition */
+									>
 										<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
 											<NumberTicker
 												value={4.93}
-												delay={2.25}
 												dir="up"
 												decimalPlaces={2}
 												className="text-4xl font-extrabold tracking-tight text-brand-text"
 											/>
 											<p className="text-sm font-medium text-brand-muted">/5.00 CAP</p>
 										</div>
-									</aside>
-								</BlurFade>
-								<BlurFade delay={5} inView>
-									<aside className="md:col-span-1">
+									</AppearOnScroll>
+									<AppearOnScroll
+										className="md:col-span-1"
+										/* uses defaults: initial, whileInView, viewport, transition */
+									>
 										<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
-											<NumberTicker
-												value={2}
-												delay={5.25}
-												className="text-4xl font-extrabold tracking-tight text-brand-text"
-											/>
+											<NumberTicker value={2} className="text-4xl font-extrabold tracking-tight text-brand-text" />
 											<p className="text-sm font-medium text-brand-muted">Internships</p>
 										</div>
-									</aside>
-								</BlurFade>
+									</AppearOnScroll>
+								</div>
 							</div>
-						</div>
+						</AppearOnScroll>
 					</article>
 				</section>
 
 				{/* Skills Section*/}
-				<section className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4">
+				<AppearOnScroll
+					className="bg-brand-card rounded-xl p-6 shadow-sm space-y-4"
+					/* uses defaults: initial, whileInView, viewport, transition */
+				>
 					<h2 className="text-3xl font-bold mb-6 text-center md:text-left">Skills</h2>
 
 					{/* stacked subcards (vertical) */}
@@ -133,7 +135,7 @@ export default function AboutMe(): JSX.Element {
 							</div>
 						))}
 					</div>
-				</section>
+				</AppearOnScroll>
 			</div>
 		</main>
 	);

@@ -26,15 +26,15 @@ export const skills: Skill[] = [
 	{ type: 'App Development', name: 'Expo Go', level: 'medium' },
 
 	// AI / Data
-	{ type: 'AI / Data', name: 'Exploratory Data Analysis (EDA)', level: 'medium' },
 	{ type: 'AI / Data', name: 'Machine Learning', level: 'low' },
 	{ type: 'AI / Data', name: 'Natural Language Processing (NLP)', level: 'low' },
+	{ type: 'AI / Data', name: 'Exploratory Data Analysis (EDA)', level: 'medium' },
 
 	// Cybersecurity
 	{ type: 'Cybersecurity', name: 'OSINT', level: 'low' },
 	{ type: 'Cybersecurity', name: 'Reverse Engineering', level: 'low' },
 
 	// General Skills
-	{ type: 'General', name: 'Git', level: 'medium' },
 	{ type: 'General', name: 'Figma', level: 'low' },
+	{ type: 'General', name: 'Git', level: 'medium' },
 ];
