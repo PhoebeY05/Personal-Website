@@ -1,6 +1,6 @@
 import tailwindcss from '@tailwindcss/vite';
-import path from 'path';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -11,5 +11,9 @@ export default defineConfig({
 		alias: {
 			'@': path.resolve(__dirname, './src'),
 		},
+	},
+	optimizeDeps: {
+		// Force pre-bundling of lucide-react to avoid "Outdated Optimize Dep" 504 errors
+		include: ['lucide-react'],
 	},
 });
