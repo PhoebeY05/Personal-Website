@@ -1,6 +1,7 @@
 import Tag from '@/components/Tag';
 import Video from '@/components/Video';
 import { Code, ExternalLink } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { isDemoVideo, projects } from '../data/projects';
 
@@ -11,6 +12,52 @@ export default function ProjectPage() {
 
 	const demoVideos = project?.demo.filter(isDemoVideo) ?? [];
 	const demoImages = project?.demo.filter((demo) => !isDemoVideo(demo)) ?? [];
+
+	const [imageDimensions, setImageDimensions] = useState<Array<{ width: number; height: number }>>([]);
+
+	useEffect(() => {
+		const loadImageDimensions = async () => {
+			const dimensions = await Promise.all(
+				demoImages.map((src) => {
+					return new Promise<{ width: number; height: number }>((resolve) => {
+						const img = new Image();
+						img.onload = () => resolve({ width: img.width, height: img.height });
+						img.onerror = () => resolve({ width: 1, height: 1 }); // fallback
+						img.src = src;
+					});
+				})
+			);
+			setImageDimensions(dimensions);
+		};
+
+		if (demoImages.length > 0) {
+			loadImageDimensions();
+		}
+	}, [demoImages]);
+
+	// Determine grid layout based on image aspect ratios
+	const getGridLayout = () => {
+		if (imageDimensions.length === 0) return 'grid-cols-1 sm:grid-cols-2';
+
+		const aspectRatios = imageDimensions.map((dim) => dim.width / dim.height);
+		const avgAspectRatio = aspectRatios.reduce((sum, ratio) => sum + ratio, 0) / aspectRatios.length;
+		const hasPortraitImages = aspectRatios.some((ratio) => ratio < 0.8); // height > width * 1.25
+
+		if (demoImages.length === 1) {
+			return 'grid-cols-1 max-w-md mx-auto';
+		} else if (hasPortraitImages && avgAspectRatio < 1) {
+			// Portrait images - use fewer columns
+			return demoImages.length <= 3
+				? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3'
+				: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4';
+		} else if (avgAspectRatio > 1.5) {
+			// Wide landscape images - use fewer columns
+			return 'grid-cols-1 max-w-2xl mx-auto';
+		} else {
+			// Square or normal landscape - use standard layout
+			return 'grid-cols-1 sm:grid-cols-2';
+		}
+	};
 
 	if (!project) {
 		return <Navigate to="/projects" replace />;
@@ -80,8 +127,8 @@ export default function ProjectPage() {
 					{/* Images / Videos */}
 					{demoVideos.length > 0 && (
 						<div className="mb-12">
-							<h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Videos</h2>
-							<div className="grid sm:grid-cols-2 gap-6">
+							<h2 className="text-xl font-semibold text-brand-text mb-4">Videos</h2>
+							<div>
 								{demoVideos.map((video, i) => (
 									<div key={i}>
 										<Video src={video} />
@@ -92,14 +139,14 @@ export default function ProjectPage() {
 					)}
 					{demoImages.length > 0 && (
 						<div className="mb-12">
-							<h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Screenshots</h2>
-							<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+							<h2 className="text-xl font-semibold text-brand-text mb-4">Screenshots</h2>
+							<div className={`grid gap-6 ${getGridLayout()}`}>
 								{demoImages.map((img, i) => (
 									<img
 										key={i}
 										src={img}
 										alt={`${project.name} screenshot ${i + 1}`}
-										className="rounded-xl border shadow-sm"
+										className="rounded-xl h-64 w-full object-contain"
 									/>
 								))}
 							</div>
