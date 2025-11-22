@@ -48,7 +48,7 @@ export default function Experiences() {
 				}}
 			>
 				{pages.map((page, i) => (
-					<div className="w-screen flex flex-col items-center pb-16">
+					<div key={i} className="w-screen flex flex-col items-center pb-16">
 						<h1 className="text-4xl md:text-5xl font-bold text-center mt-8 tracking-tight">
 							{capitalise(page[0].type) + ' Experience'}
 						</h1>

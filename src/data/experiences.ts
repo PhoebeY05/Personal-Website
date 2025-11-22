@@ -102,7 +102,7 @@ export const experiences: Experience[] = [
 		role: 'Undergraduate Teaching Assistant',
 		organisation: 'National University of Singapore',
 		description:
-			'Prepared and conducted weekly tutorial lessons, evaluated twice-weekly programming assignments, and held consultations, for a class of 8 students. Course: CS1101S Programming Methodology.',
+			'Prepared and conducted weekly tutorial lessons, evaluated twice-weekly programming assignments, and held consultations, for a class of 6 students.',
 		tasks: [
 			'Prepared weekly tutorial lessons',
 			'Evaluated programming assignments twice a week',
