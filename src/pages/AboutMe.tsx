@@ -5,8 +5,8 @@ import { HyperText } from '@/components/ui/hyper-text';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import type { JSX } from 'react';
 import Placeholder from '../assets/placeholder.png';
-import Sketch from '../assets/sketch.png'; // Profile image
-import AppearOnScroll from '../components/AppearOnScroll'; // new wrapper for motion.section
+import Sketch from '../assets/me.png'; // Profile image
+import AppearOnScroll from '../components/AppearOnScroll';
 import SkillProgress from '../components/SkillProgress';
 import { skills, type Skill } from '../data/skills';
 
@@ -37,7 +37,7 @@ export default function AboutMe(): JSX.Element {
 				<section className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch mb-8">
 					{/* Left column: Profile card */}
 					<article className="md:col-span-1">
-						<div className="h-full shadow-2xl">
+						<div className="h-full">
 							<img
 								src={Sketch}
 								alt="Profile"
