@@ -1,7 +1,7 @@
 import { getProjectsFromSkill } from '@/data/projects';
 import { skills } from '@/data/skills';
 import { motion } from 'motion/react';
-import { Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 
 export default function IndividualSkill() {
 	const { name: paramName } = useParams<{ name: string }>();
@@ -12,6 +12,7 @@ export default function IndividualSkill() {
 	if (!skill) return <Navigate to="/404" replace />;
 
 	const relatedProjects = getProjectsFromSkill(skill.name);
+	const toProjectSlug = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
 
 	return (
 		<main className="relative min-h-screen text-brand-text p-6 md:p-12 z-10">
@@ -32,14 +33,16 @@ export default function IndividualSkill() {
 				{/* --- PROJECTS SECTION --- */}
 				<div className="grid md:grid-cols-2 gap-8 mt-12">
 					{relatedProjects.map((p) => (
-						<motion.div
-							key={p.name}
-							whileHover={{ scale: 1.02 }}
-							className="p-6 rounded-2xl bg-brand-card backdrop-blur border border-brand-react shadow-sm"
-						>
-							<h3 className="text-xl font-semibold">{p.name}</h3>
-							<p className="opacity-75 mt-2">{p.description}</p>
-						</motion.div>
+						<Link to={`/projects/${toProjectSlug(p.name)}`} className="block">
+							<motion.div
+								key={p.name}
+								whileHover={{ scale: 1.02 }}
+								className="p-6 rounded-2xl bg-brand-card backdrop-blur border border-brand-react shadow-sm"
+							>
+								<h3 className="text-xl font-semibold">{p.name}</h3>
+								<p className="opacity-75 mt-2">{p.description}</p>
+							</motion.div>
+						</Link>
 					))}
 				</div>
 			</div>
