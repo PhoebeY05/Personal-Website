@@ -1,73 +1,72 @@
-# React + TypeScript + Vite
+# Personal Portfolio [![wakatime](https://wakatime.com/badge/user/018e18e4-ea39-46c6-b3da-dcbf7a45a702/project/d4ba3e24-1005-49f9-b039-6d381cf6eb74.svg)](https://wakatime.com/badge/user/018e18e4-ea39-46c6-b3da-dcbf7a45a702/project/d4ba3e24-1005-49f9-b039-6d381cf6eb74)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive, data-driven portfolio showcasing projects, skills, experiences, competitions, and growth through build–learn cycles.
 
-Currently, two official plugins are available:
+## Features
+- Animated landing (Aurora / Liquid background field)
+- Skills grouped by category with progress visualization
+- Timeline views (projects, experiences) with zig‑zag layout
+- Filterable experiences (work / volunteering) with state persistence
+- Competition filtering (hackathons / CTFs) + achievement highlighting
+- Individual pages for skills, projects, experiences
+- Media section: adaptive video / image layout
+- Stack-style interactive image cards
+- Theme toggle with view‑transition reveal
+- Responsive design (mobile → desktop)
+- Accessible semantic structure (headings, alt text, focus states)
+- Data-driven: easy expansion via JSON-like arrays
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+| Layer | Tools |
+|-------|-------|
+| Framework | React + TypeScript + Vite |
+| Styling | Tailwind CSS (v4 syntax), custom CSS variables (light/dark) |
+| Animation | Framer Motion, Magic UI React Bits |
+| Icons | Lucide React, Heroicons, Flaticoon |
+| Routing | react-router-dom |
+| Build / Deploy | Vite, GitHub Pages (BASE_URL aware asset paths) |
 
-## React Compiler
+## Data Sources
+- `src/data/projects.ts` – project metadata (name, month, tags, media)
+- `src/data/skills.ts` – skill taxonomy (type, level, description)
+- `src/data/experiences.ts` – experience records (duration parsing helper)
+- `src/data/competitions.ts` – split into noteworthy + participation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+All pages derive UI from these arrays—add or modify entries to update content.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Architecture Overview
+```
+src/
+  components/        # Reusable UI primitives (Tag, PillFilter, Stack, etc.)
+  pages/             # Route-level screens (AboutMe, Projects, Experiences, Competitions, etc.)
+  data/              # Structured data objects
+  assets/            # Images / media referenced via imports
+  components/ui/     # Visual effect + animated utility components
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Animation & Motion
+- Framer Motion for entrance + hover micro-interactions
+- LiquidEther background 
+- Magic UI theme toggler
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Theming
+Light/Dark controlled by `document.documentElement.classList.toggle('dark')`.  
+CSS variables mapped to Tailwind theme tokens for consistent design.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Accessibility
+- Alt text on media
+- Keyboard navigation supported (arrow keys for slider previously; simplified now)
+- High contrast state in dark mode
+
+
+## Future Improvements
+- i18n support
+- Lazy loading / code splitting
+- Search across projects / experiences
+
+## Learning Emphasis
+Each section reflects iterative skill acquisition: rapid prototyping, animation integration, performance-aware structuring, and refinement of UI accessibility and responsiveness.
+
+## License
+MIT
+
