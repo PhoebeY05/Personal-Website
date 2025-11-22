@@ -1,7 +1,22 @@
+import type { Experience } from '@/data/experiences';
+import { getExperiencesFromSkill, parseDateFromDuration } from '@/data/experiences';
+import type { Project } from '@/data/projects';
 import { getProjectsFromSkill } from '@/data/projects';
 import { skills } from '@/data/skills';
 import { motion } from 'motion/react';
 import { Link, Navigate, useParams } from 'react-router-dom';
+
+const isProjectEntity = (item: Project | Experience): item is Project => 'month' in item;
+
+// helper: extract a comparable start date from either Project.month or Experience.duration
+const getStartDate = (item: Project | Experience): Date => {
+	if (isProjectEntity(item)) {
+		const d = new Date(item.month);
+		return isNaN(d.getTime()) ? new Date(0) : d;
+	}
+	const d = parseDateFromDuration(item.duration);
+	return isNaN(d.getTime()) ? new Date(0) : d;
+};
 
 export default function IndividualSkill() {
 	const { name: paramName } = useParams<{ name: string }>();
@@ -10,7 +25,13 @@ export default function IndividualSkill() {
 	if (!skill) return <Navigate to="/404" replace />;
 
 	const relatedProjects = getProjectsFromSkill(skill.name);
-	const toProjectSlug = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
+	const relatedExperiences = getExperiencesFromSkill(skill.name);
+
+	// unified list sorted by start date (newest first)
+	const related: (Project | Experience)[] = [...relatedProjects, ...relatedExperiences].sort(
+		(a, b) => getStartDate(b).getTime() - getStartDate(a).getTime()
+	);
+	const toSlug = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
 
 	return (
 		<main className="relative min-h-screen text-brand-text p-6 md:p-12 z-10">
@@ -30,12 +51,11 @@ export default function IndividualSkill() {
 					{/* Vertical line for desktop */}
 					<div className="hidden md:block absolute top-0 left-1/2 w-[2px] h-full bg-brand-accent"></div>
 
-					{relatedProjects.map((p, index) => {
+					{related.map((r, index) => {
 						const isLeft = index % 2 === 0;
-
 						return (
 							<motion.div
-								key={p.name}
+								key={r.name}
 								initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
 								animate={{ opacity: 1, x: 0 }}
 								transition={{ delay: index * 0.15 }}
@@ -49,20 +69,22 @@ export default function IndividualSkill() {
 											!isLeft ? 'md:right-6' : 'md:left-6'
 										}`}
 									>
-										{p.month}
+										{isProjectEntity(r) ? r.month : r.duration}
 									</span>
 								</div>
-
-								{/* Project Card */}
+								{/* Card */}
 								<div
 									className={`w-full md:w-5/12 mt-4 md:mt-0 ${
 										isLeft ? 'md:mr-auto md:ml-0 text-left md:text-right' : 'md:ml-auto md:mr-0 text-left'
 									}`}
 								>
-									<Link to={`/projects/${toProjectSlug(p.name)}`} className="group block">
+									<Link
+										to={isProjectEntity(r) ? `/projects/${toSlug(r.name)}` : `/experience/${toSlug(r.name)}`}
+										className="group block"
+									>
 										<div className="p-6 rounded-2xl bg-brand-card backdrop-blur border border-brand-react shadow-sm transition-transform duration-200 group-hover:scale-[1.02]">
-											<h3 className="text-xl font-semibold group-hover:text-brand-accent">{p.name}</h3>
-											<p className="opacity-75 mt-2">{p.description}</p>
+											<h3 className="text-xl font-semibold">{r.name}</h3>
+											<p className="opacity-75 mt-2">{r.description}</p>
 										</div>
 									</Link>
 								</div>

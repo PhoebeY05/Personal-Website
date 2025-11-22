@@ -39,7 +39,7 @@ export default function AboutMe(): JSX.Element {
 					<article className="md:col-span-1">
 						<div className="h-full">
 							<img
-								src={Sketch}
+								src={Sketch} // keeps bundler-managed import; avoid manual leading slash paths
 								alt="Profile"
 								loading="lazy"
 								className="w-full h-full rounded-lg object-cover"
@@ -77,13 +77,13 @@ export default function AboutMe(): JSX.Element {
 							<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start flex-1 content-center">
 								{/* centered card */}
 								<AppearOnScroll className="md:col-span-1">
-									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
+									<div className="bg-gradient-to-tr from-brand-react to-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
 										<NumberTicker value={6} className="text-4xl font-extrabold tracking-tight text-brand-text" />
 										<p className="text-md font-medium text-brand-muted">Projects</p>
 									</div>
 								</AppearOnScroll>
 								<AppearOnScroll className="md:col-span-1">
-									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
+									<div className="bg-gradient-to-tr from-brand-react to-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
 										<NumberTicker
 											value={4.93}
 											dir="up"
@@ -94,7 +94,7 @@ export default function AboutMe(): JSX.Element {
 									</div>
 								</AppearOnScroll>
 								<AppearOnScroll className="md:col-span-1">
-									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
+									<div className="bg-gradient-to-tr from-brand-react to-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
 										<NumberTicker value={2} className="text-4xl font-extrabold tracking-tight text-brand-text" />
 										<p className="text-md font-medium text-brand-muted">Internships</p>
 									</div>

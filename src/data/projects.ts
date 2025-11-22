@@ -1,25 +1,27 @@
+const BASE = import.meta.env.BASE_URL; // "/" locally, "/repo-name/" on GitHub Pages
+
 // Reading Records demos
-const ReadingRecords = '/demos/ReadingRecords/reading_records.mp4';
+const ReadingRecords = `${BASE}demos/ReadingRecords/reading_records.mp4`;
 
 // AI Content Generator demos
-const AIContentGenerator1 = '/demos/ContentGenerator/content_generator.mp4';
-const AIContentGenerator2 = '/demos/ContentGenerator/content_generator.png';
+const AIContentGenerator1 = `${BASE}demos/ContentGenerator/content_generator.mp4`;
+const AIContentGenerator2 = `${BASE}demos/ContentGenerator/content_generator.png`;
 
 // Blackjack Calculator demos
-const BlackjackCalculator1 = '/demos/BlackjackScoreCalculator/home.png';
-const BlackjackCalculator2 = '/demos/BlackjackScoreCalculator/name.png';
-const BlackjackCalculator3 = '/demos/BlackjackScoreCalculator/mode.png';
-const BlackjackCalculator4 = '/demos/BlackjackScoreCalculator/combo.png';
-const BlackjackCalculator5 = '/demos/BlackjackScoreCalculator/standard.png';
-const BlackjackCalculator6 = '/demos/BlackjackScoreCalculator/special.png';
-const BlackjackCalculator7 = '/demos/BlackjackScoreCalculator/number.png';
-const BlackjackCalculator8 = '/demos/BlackjackScoreCalculator/score.png';
+const BlackjackCalculator1 = `${BASE}demos/BlackjackScoreCalculator/home.png`;
+const BlackjackCalculator2 = `${BASE}demos/BlackjackScoreCalculator/name.png`;
+const BlackjackCalculator3 = `${BASE}demos/BlackjackScoreCalculator/mode.png`;
+const BlackjackCalculator4 = `${BASE}demos/BlackjackScoreCalculator/combo.png`;
+const BlackjackCalculator5 = `${BASE}demos/BlackjackScoreCalculator/standard.png`;
+const BlackjackCalculator6 = `${BASE}demos/BlackjackScoreCalculator/special.png`;
+const BlackjackCalculator7 = `${BASE}demos/BlackjackScoreCalculator/number.png`;
+const BlackjackCalculator8 = `${BASE}demos/BlackjackScoreCalculator/score.png`;
 
 // Telegram Bot demos
-const TelegramBot1 = '/demos/TelegramBirthdayBot/start.png';
-const TelegramBot2 = '/demos/TelegramBirthdayBot/cal.png';
-const TelegramBot3 = '/demos/TelegramBirthdayBot/add.png';
-const TelegramBot4 = '/demos/TelegramBirthdayBot/list.png';
+const TelegramBot1 = `${BASE}demos/TelegramBirthdayBot/start.png`;
+const TelegramBot2 = `${BASE}demos/TelegramBirthdayBot/cal.png`;
+const TelegramBot3 = `${BASE}demos/TelegramBirthdayBot/add.png`;
+const TelegramBot4 = `${BASE}demos/TelegramBirthdayBot/list.png`;
 
 export interface Project {
 	name: string;
@@ -79,7 +81,7 @@ export const projects: Project[] = [
 		link: 'https://webforum-ydus.onrender.com/',
 		github: 'https://github.com/PhoebeY05/CVWO-Winter-Assignment-2024',
 		demo: [],
-		tags: ['Ruby on Rails', 'SQLite3', 'Node.js', 'JavaScript'],
+		tags: ['Ruby on Rails', 'SQLite3', 'Node.js', 'JavaScript', 'React', 'Bootstrap'],
 	},
 	{
 		name: 'Telegram Birthday Bot',
@@ -90,6 +92,16 @@ export const projects: Project[] = [
 		github: 'https://github.com/PhoebeY05/Telegram-Birthday-Bot',
 		demo: [TelegramBot1, TelegramBot2, TelegramBot3, TelegramBot4],
 		tags: ['Python', 'Telegram API'],
+	},
+	{
+		name: 'Personal Website',
+		description:
+			'An interactive, responsive portfolio showcasing projects, skills, and experiences with animated backgrounds, theme toggling, and responsive design.',
+		month: 'November 2025',
+		link: 'https://phoebey05.github.io/Personal-Website/#/',
+		github: 'https://github.com/PhoebeY05/personal-website',
+		demo: [],
+		tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Motion', 'Shadcn UI'],
 	},
 ];
 
