@@ -83,7 +83,7 @@ export default function IndividualSkill() {
 										className="group block"
 									>
 										<div className="p-6 rounded-2xl bg-brand-card backdrop-blur border border-brand-react shadow-sm transition-transform duration-200 group-hover:scale-[1.02]">
-											<h3 className="text-xl font-semibold group-hover:text-brand-accent">{r.name}</h3>
+											<h3 className="text-xl font-semibold">{r.name}</h3>
 											<p className="opacity-75 mt-2">{r.description}</p>
 										</div>
 									</Link>

@@ -53,6 +53,13 @@ export const skills: Skill[] = [
 	},
 	{
 		type: 'Web Development',
+		name: 'React',
+		level: 'high',
+		description:
+			'Component-driven frontend library used to build interactive, stateful UIs with hooks, routing, and animation.',
+	},
+	{
+		type: 'Web Development',
 		name: 'Flask',
 		level: 'medium',
 		description: 'Lightweight Python web framework used to build APIs and backend systems.',

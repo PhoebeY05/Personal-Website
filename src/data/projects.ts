@@ -81,7 +81,7 @@ export const projects: Project[] = [
 		link: 'https://webforum-ydus.onrender.com/',
 		github: 'https://github.com/PhoebeY05/CVWO-Winter-Assignment-2024',
 		demo: [],
-		tags: ['Ruby on Rails', 'SQLite3', 'Node.js', 'JavaScript'],
+		tags: ['Ruby on Rails', 'SQLite3', 'Node.js', 'JavaScript', 'React', 'Bootstrap'],
 	},
 	{
 		name: 'Telegram Birthday Bot',
@@ -92,6 +92,16 @@ export const projects: Project[] = [
 		github: 'https://github.com/PhoebeY05/Telegram-Birthday-Bot',
 		demo: [TelegramBot1, TelegramBot2, TelegramBot3, TelegramBot4],
 		tags: ['Python', 'Telegram API'],
+	},
+	{
+		name: 'Personal Website',
+		description:
+			'An interactive, responsive portfolio showcasing projects, skills, and experiences with animated backgrounds, theme toggling, and responsive design.',
+		month: 'November 2025',
+		link: 'https://phoebey05.github.io/Personal-Website/#/',
+		github: 'https://github.com/PhoebeY05/personal-website',
+		demo: [],
+		tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Motion', 'Shadcn UI'],
 	},
 ];
 
