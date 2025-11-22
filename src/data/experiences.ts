@@ -107,7 +107,7 @@ export const experiences: Experience[] = [
 			'Guided beneficiaries in selecting items for their welfare packs',
 			'Helped pack welfare items and assisted beneficiaries with transporting them via trolley',
 		],
-		images: [],
+		images: [RTTO1],
 		certificate: '',
 		tags: ['Digital Safety', 'Senior Care'],
 	},

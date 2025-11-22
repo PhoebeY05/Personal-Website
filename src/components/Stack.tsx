@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/purity */
 import { motion, useMotionValue, useTransform } from 'motion/react';
 import { useState } from 'react';
 
