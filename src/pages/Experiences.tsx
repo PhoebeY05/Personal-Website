@@ -1,15 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import ExperienceList from '@/components/ExperienceList';
 import { experiences, type Experience } from '@/data/experiences';
-import { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function Experiences() {
 	const [index, setIndex] = useState(0);
+	const [bgIndex, setBgIndex] = useState(0); // background applied after transition
 
 	const workExperiences = experiences.filter((exp) => exp.type === 'work');
 	const volunteerExperiences = experiences.filter((exp) => exp.type === 'volunteering');
 	const capitalise = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
-
 	const pages: Experience[][] = [workExperiences, volunteerExperiences];
 
 	const goLeft = () => setIndex((prev) => (prev === 0 ? pages.length - 1 : prev - 1));
@@ -20,60 +21,64 @@ export default function Experiences() {
 			if (e.key === 'ArrowRight') goRight();
 			if (e.key === 'ArrowLeft') goLeft();
 		};
-
 		window.addEventListener('keydown', handleKey);
 		return () => window.removeEventListener('keydown', handleKey);
 	}, []);
 
+	// Apply background only after slide animation
+	useEffect(() => {
+		if (index !== bgIndex) {
+			const t = setTimeout(() => setBgIndex(index), 100);
+			return () => clearTimeout(t);
+		}
+	}, [index, bgIndex]);
+
 	return (
-		<main className="relative w-screen h-screen overflow-hidden">
+		<main
+			className={`relative w-screen h-screen overflow-hidden ${
+				bgIndex === 0 ? 'bg-brand-bg' : 'bg-brand-card'
+			} transition-colors duration-300`}
+		>
 			{/* SLIDER WRAPPER */}
 			<div
 				className="flex h-full transition-transform duration-700 ease-in-out"
-				style={{
-					width: `${pages.length * 100}vw`,
-					transform: `translateX(-${index * 100}vw)`,
-				}}
+				style={{ width: `${pages.length * 100}vw`, transform: `translateX(-${index * 100}vw)` }}
 			>
 				{pages.map((page, i) => (
-					<div className="w-screen h-full flex flex-col items-center">
+					<div key={i} className="w-screen h-full flex flex-col items-center">
 						<h1 className="text-4xl md:text-5xl font-bold text-center mt-8 tracking-tight">
 							{capitalise(page[0].type) + ' Experience'}
 						</h1>
-						<ExperienceList key={i} experiences={page} />
+						<ExperienceList experiences={page} index={index} />
 					</div>
 				))}
 			</div>
 
-			{/* LEFT BUTTON */}
-			{index > 0 && (
-				<button
+			{/* LEFT SLIM BORDER WITH PROTRUDING ARROW */}
+			{index === 1 && (
+				<div
 					onClick={goLeft}
-					className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-4 rounded-full bg-white shadow-lg hover:scale-110 transition"
+					className="absolute left-0 top-0 h-full w-2 bg-brand-bg cursor-pointer flex items-center justify-end"
 				>
-					←
-				</button>
-			)}
-
-			{/* RIGHT BUTTON */}
-			{index < pages.length - 1 && (
-				<button
-					onClick={goRight}
-					className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-4 rounded-full bg-white shadow-lg hover:scale-110 transition"
-				>
-					→
-				</button>
-			)}
-
-			{/* INDICATORS */}
-			{/* <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10">
-				{pages.map((_: JSX.e, i: Key | null | undefined) => (
-					<div
-						key={i}
-						className={`w-3 h-3 rounded-full transition-all ${i === index ? 'bg-black scale-125' : 'bg-gray-400'}`}
+					<ChevronLeft
+						size={48}
+						className="rounded-xs text-brand-text -mr-6 hover:scale-110 transition-transform bg-brand-bg"
 					/>
-				))}
-			</div> */}
+				</div>
+			)}
+
+			{/* RIGHT SLIM BORDER WITH PROTRUDING ARROW */}
+			{index === 0 && (
+				<div
+					onClick={goRight}
+					className="absolute right-0 top-0 h-full w-2 bg-brand-card cursor-pointer flex items-center justify-start"
+				>
+					<ChevronRight
+						size={48}
+						className="rounded-xs text-brand-text -ml-6 hover:scale-110 transition-transform bg-brand-card"
+					/>
+				</div>
+			)}
 		</main>
 	);
 }
