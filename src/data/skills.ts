@@ -38,3 +38,7 @@ export const skills: Skill[] = [
 	{ type: 'General', name: 'Figma', level: 'low' },
 	{ type: 'General', name: 'Git', level: 'medium' },
 ];
+
+export function isSkill(tag: string) {
+	return skills.map((skill) => skill.name).includes(tag);
+}

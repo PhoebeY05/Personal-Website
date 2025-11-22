@@ -100,3 +100,7 @@ export function getProjectByName(name: string): Project {
 export function isDemoVideo(demo: string) {
 	return demo.endsWith('.mp4') || demo.endsWith('.mov');
 }
+
+export function getProjectsFromSkill(skill: string) {
+	return projects.filter((project) => project.tags.includes(skill));
+}

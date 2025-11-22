@@ -8,13 +8,12 @@ export default function ProjectPage() {
 	const { name: paramName } = useParams<{ name: string }>();
 
 	const project = projects.find((p) => p.name.toLowerCase().replace(/\s+/g, '-') === paramName);
-
-	const demoVideos = project?.demo.filter(isDemoVideo) ?? [];
-	const demoImages = project?.demo.filter((demo) => !isDemoVideo(demo)) ?? [];
-
 	if (!project) {
 		return <Navigate to="/projects" replace />;
 	}
+
+	const demoVideos = project.demo.filter(isDemoVideo) ?? [];
+	const demoImages = project.demo.filter((demo) => !isDemoVideo(demo)) ?? [];
 
 	return (
 		<main className="relative h-full text-brand-text p-6 md:p-12 z-10">
