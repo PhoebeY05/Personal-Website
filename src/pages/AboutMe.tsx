@@ -1,3 +1,4 @@
+import Tag from '@/components/Tag';
 import { AuroraText } from '@/components/ui/aurora-text';
 import { Highlighter } from '@/components/ui/highlighter';
 import { HyperText } from '@/components/ui/hyper-text';
@@ -117,13 +118,19 @@ export default function AboutMe(): JSX.Element {
 								<h3 className="text-lg text-brand-text font-semibold mb-3">{type}</h3>
 								{/* matrix: 1 / 2 / 3 columns (mobile → sm → md+) */}
 								<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 group-hover:bg-transparent">
-									{grouped[type].map((skill) => (
+									{grouped[type].map((skill, index) => (
 										// two-row card: top = label (can wrap), bottom = progress bar (SkillProgress renders only the bar)
 										<div
 											key={skill.name}
 											className="p-2 bg-brand-card rounded-md h-20 flex flex-col justify-between group-hover:bg-transparent"
 										>
-											<span className="text-sm font-medium text-brand-text leading-tight">{skill.name}</span>
+											<div className="flex">
+												<Tag
+													name={skill.name}
+													index={`${type}-${index}`}
+													skillClassName="inline-block py-1 text-sm font-medium text-brand-text leading-tight w-fit"
+												></Tag>
+											</div>
 											<div>
 												<SkillProgress {...skill} />
 											</div>
