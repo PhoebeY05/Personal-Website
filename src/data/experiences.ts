@@ -1,3 +1,19 @@
+// CVWO
+const CVWO = '/certificates/cvwo.jpeg';
+const CVWO1 = '/experiences/CVWO/KWSH.jpg';
+const CVWO2 = '/experiences/CVWO/Lunch.jpg';
+const CVWO3 = '/experiences/CVWO/GIC.jpg';
+
+// R&S
+const RohdeAndSchwarz1 = '/experiences/RohdeAndSchwarz/worktable.jpeg';
+const RohdeAndSchwarz2 = '/experiences/RohdeAndSchwarz/gift.jpeg';
+
+// PFK
+const PFK1 = '/experiences/PFK/trial.jpeg';
+
+// RTTO
+const RTTO1 = '/experiences/RTTO/rtto.jpeg';
+
 export interface Experience {
 	type: string;
 	name: string;
@@ -28,8 +44,8 @@ export const experiences: Experience[] = [
 			'Worked on multiple large codebases spanning backend, frontend, and mobile',
 			'Followed internal Git workflow and DevOps lifecycle',
 		],
-		images: [],
-		certificate: '',
+		images: [CVWO1, CVWO2, CVWO3],
+		certificate: CVWO,
 		tags: ['Golang', 'React', 'Frontend', 'Backend', 'Mobile', 'DevOps', 'Expo Go', 'Git'],
 	},
 
@@ -49,7 +65,7 @@ export const experiences: Experience[] = [
 			'Prepared documentation using Drawio and MS Word (TOC, references, formatting)',
 			'Modified Pytest run configurations for testing procedures',
 		],
-		images: [],
+		images: [RohdeAndSchwarz1, RohdeAndSchwarz2],
 		certificate: '',
 		tags: ['Hardware', 'Testing', 'Documentation', 'Soldering'],
 	},
@@ -74,7 +90,7 @@ export const experiences: Experience[] = [
 			'Lecturer for a session, teaching and walking around to check progress',
 			'Helped students debug and complete their final projects',
 		],
-		images: [],
+		images: [PFK1],
 		certificate: '',
 		tags: ['Scratch', 'Teaching', 'Programming Basics'],
 	},
