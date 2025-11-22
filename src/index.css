@@ -55,10 +55,10 @@
 [data-theme='dark'] {
 	--bg: #0c0c0f;
 	--text: #f5f2eb;
-	--muted: #b3ac9d;
+	--muted: #615656;
 	--accent: #d8a44b;
-	--secondary: #313033;
-	--react-accent: #f1d095;
+	--react-accent: #4aa6d6;
+	--secondary: #b08e52;
 	--card-bg: #191a1d;
 }
 
@@ -72,9 +72,6 @@
 	--color-brand-react: var(--react-accent);
 	--color-brand-secondary: var(--secondary);
 	--color-brand-card: var(--card-bg);
-
-	/* Optional: gradient utility */
-	--color-brand-gradient: linear-gradient(135deg, var(--accent), var(--react-accent));
 
 	/* Fonts */
 	--font-sans: 'Delius', cursive;

@@ -21,10 +21,7 @@ function classNames(...classes: string[]) {
 export default function Navbar() {
 	// const { theme, toggleTheme } = useTheme();
 	return (
-		<Disclosure
-			as="nav"
-			className="relative bg-brand-accent dark:after:pointer-events-none dark:after:absolute dark:after:inset-x-0 dark:after:bottom-0 dark:after:h-px dark:after:bg-brand-bg"
-		>
+		<Disclosure as="nav" className="relative bg-brand-accent">
 			{/* make this wrapper full width so navbar is full-bleed (no large centered margins) */}
 			<div className="w-full px-2 sm:px-6 lg:px-8">
 				<div className="relative flex h-16 items-center justify-between">

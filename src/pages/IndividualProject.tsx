@@ -1,0 +1,85 @@
+import Tag from '@/components/Tag';
+import { Code, ExternalLink } from 'lucide-react';
+import { Navigate, useParams } from 'react-router-dom';
+import { isDemoVideo, projects } from '../data/projects';
+import MediaSection from '@/components/MediaSection';
+
+export default function ProjectPage() {
+	const { name: paramName } = useParams<{ name: string }>();
+
+	const project = projects.find((p) => p.name.toLowerCase().replace(/\s+/g, '-') === paramName);
+	if (!project) {
+		return <Navigate to="/projects" replace />;
+	}
+
+	const demoVideos = project.demo.filter(isDemoVideo) ?? [];
+	const demoImages = project.demo.filter((demo) => !isDemoVideo(demo)) ?? [];
+
+	return (
+		<main className="relative h-full text-brand-text p-6 md:p-12 z-10">
+			<div className="mx-auto max-w-6xl shadow-2xl">
+				<div className="max-w-4xl mx-auto px-6 py-12 bg-brand-bg rounded-2xl">
+					<div className="flex justify-between items-start mb-8">
+						{/* Title Section */}
+						<div className="mb-4">
+							<h1 className="text-3xl font-bold text-brand-text mb-2">{project.name}</h1>
+							<p className="text-brand-muted">{project.month}</p>
+						</div>
+						{/* Links */}
+						<div className="flex flex-wrap items-center gap-5">
+							{project.link && (
+								<a
+									href={project.link}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex items-center text-lg gap-2 px-3 py-1.5 text-indigo-600 rounded-lg hover:scale-110 transition-transform duration-200"
+								>
+									<ExternalLink size={18} />
+									Visit
+								</a>
+							)}
+							{project.github && (
+								<a
+									href={project.github}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex items-center text-lg gap-2 px-3 py-1.5 text-brand-text rounded-lg hover:scale-110 transition-transform duration-200"
+								>
+									<Code size={18} />
+									Source Code
+								</a>
+							)}
+						</div>
+					</div>
+
+					{/* Description */}
+					<p className="text-lg text-brand-text leading-relaxed mb-8">{project.description}</p>
+
+					{/* Tech Stack */}
+					<div className="mb-10">
+						<div className="flex flex-wrap gap-2">
+							{project.tags.map((tag, index) => (
+								<Tag name={tag} index={index} />
+							))}
+						</div>
+					</div>
+
+					{/* Features */}
+					{/* {features.length > 0 && (
+						<div className="mb-10">
+							<h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-3">Features</h2>
+							<ul className="space-y-2 list-disc pl-6 text-zinc-700 dark:text-zinc-300">
+								{features.map((f, i) => (
+									<li key={i}>{f}</li>
+								))}
+							</ul>
+						</div>
+					)} */}
+
+					{/* Demo */}
+					<MediaSection images={demoImages} videos={demoVideos} />
+				</div>
+			</div>
+		</main>
+	);
+}
