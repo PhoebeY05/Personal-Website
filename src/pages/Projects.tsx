@@ -2,6 +2,7 @@ import type { JSX } from 'react';
 import { projects } from '../data/projects';
 import ProjectCard from '@/components/ProjectCard';
 import { useEffect, useState } from 'react';
+import Header from '@/components/Header';
 
 export default function Projects(): JSX.Element {
 	const [visibleCards, setVisibleCards] = useState<number[]>([]);
@@ -25,13 +26,10 @@ export default function Projects(): JSX.Element {
 		<main className="relative min-h-screen p-6 md:p-12 text-brand-text z-10">
 			<div className="mx-auto max-w-6xl relative z-20">
 				{/* Section Header */}
-				<section className="text-center mb-12">
-					<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-3">My Projects</h1>
-					<div className="h-1 w-24 mx-auto bg-brand-accent rounded-full mb-6 animate-pulse-fast"></div>
-					<p className="text-brand-text text-lg md:text-xl">
-						A showcase of web and app projects I've built with care and creativity.
-					</p>
-				</section>
+				<Header
+					title="Projects"
+					description="A portfolio of projects crafted with creativity and technical expertise to deliver practical, impactful solutions."
+				/>
 
 				{/* Projects List */}
 				{sortedProjects.map((project, index) => (

@@ -1,3 +1,4 @@
+import Header from '@/components/Header';
 import PillFilter from '@/components/PillFilter';
 import Tag from '@/components/Tag';
 import { important, notImportant, type Competition } from '@/data/competitions';
@@ -17,7 +18,12 @@ export default function Competitions() {
 
 	return (
 		<main className="max-w-6xl mx-auto p-6 md:p-12 text-brand-text">
-			<h1 className="text-4xl md:text-5xl font-bold text-center mb-12">Competitions</h1>
+			{/* Section Header */}
+			<Header
+				title="Competitions"
+				description="Intensive experiences that honed my problem‑solving, teamwork, and technical skills under real-world constraints."
+			/>
+
 			{/* Toggle Filter */}
 			<div className="mb-10">
 				<PillFilter

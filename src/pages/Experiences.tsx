@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import ExperienceList from '@/components/ExperienceList';
+import Header from '@/components/Header';
 import PillFilter from '@/components/PillFilter';
 import { experiences } from '@/data/experiences';
 import { useState, useEffect } from 'react';
@@ -20,11 +21,11 @@ export default function Experiences() {
 	return (
 		<main className="relative min-h-screen p-6 md:p-12 text-brand-text">
 			<div className="max-w-5xl mx-auto">
-				{/* Header */}
-				<section className="text-center mb-10">
-					<h1 className="text-4xl md:text-5xl font-bold mb-3">Experience</h1>
-					<p className="opacity-80 text-lg">Work & Volunteering journeys that shaped who I am.</p>
-				</section>
+				{/* Section Header */}
+				<Header
+					title="Experiences"
+					description="Highlights of work and volunteering that have guided my personal and professional path."
+				/>
 
 				<div className="mb-10">
 					<PillFilter
