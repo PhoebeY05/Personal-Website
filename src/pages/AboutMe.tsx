@@ -4,8 +4,8 @@ import { Highlighter } from '@/components/ui/highlighter';
 import { HyperText } from '@/components/ui/hyper-text';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import type { JSX } from 'react';
-import Placeholder from '../assets/placeholder.png';
 import Sketch from '../assets/me.png'; // Profile image
+import Placeholder from '../assets/placeholder.png';
 import AppearOnScroll from '../components/AppearOnScroll';
 import SkillProgress from '../components/SkillProgress';
 import { skills, type Skill } from '../data/skills';
@@ -113,16 +113,16 @@ export default function AboutMe(): JSX.Element {
 						{types.map((type) => (
 							<div
 								key={type}
-								className="group bg-brand-card p-4 mb-2 rounded-xl shadow-lg outline-1 outline-brand-react w-full hover:bg-brand-accent"
+								className="group bg-brand-card p-4 mb-2 rounded-xl shadow-lg outline-1 outline-brand-react w-full hover:bg-brand-accent hover:outline-brand-secondary hover:shadow-xl transition-all duration-300 p-6 my-5 transform hover:-translate-y-1 hover:scale-[1.02] motion-reduce:transform-none"
 							>
 								<h3 className="text-lg text-brand-text font-semibold mb-3">{type}</h3>
 								{/* matrix: 1 / 2 / 3 columns (mobile → sm → md+) */}
-								<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 group-hover:bg-transparent">
+								<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
 									{grouped[type].map((skill, index) => (
 										// two-row card: top = label (can wrap), bottom = progress bar (SkillProgress renders only the bar)
 										<div
 											key={skill.name}
-											className="p-2 bg-brand-card rounded-md h-20 flex flex-col justify-between group-hover:bg-transparent"
+											className="p-2 bg-brand-card rounded-md h-20 flex flex-col justify-between group-hover:bg-brand-accent transition-colors duration-300"
 										>
 											<div className="flex">
 												<Tag
