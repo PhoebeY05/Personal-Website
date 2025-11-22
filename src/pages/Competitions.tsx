@@ -1,3 +1,4 @@
+import PillFilter from '@/components/PillFilter';
 import Tag from '@/components/Tag';
 import { important, notImportant, type Competition } from '@/data/competitions';
 import { motion } from 'framer-motion';
@@ -15,25 +16,16 @@ export default function Competitions() {
 		<main className="max-w-6xl mx-auto p-6 md:p-12 text-brand-text">
 			<h1 className="text-4xl md:text-5xl font-bold text-center mb-12">Competitions</h1>
 			{/* Toggle Filter */}
-			<div className="flex justify-center mb-10">
-				<div className="flex bg-brand-card/40 border border-brand-secondary p-1 rounded-full shadow-lg backdrop-blur-xl">
-					{[
+			<div className="mb-10">
+				<PillFilter
+					options={[
 						{ key: 'all', label: 'All' },
-						{ key: 'ctf', label: 'CTF' },
-						{ key: 'hackathon', label: 'Hackathon' },
-					].map((item) => (
-						<button
-							key={item.key}
-							onClick={() => setFilter(item.key as 'all' | 'ctf' | 'hackathon')}
-							className={`
-					px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300
-					${filter === item.key ? 'bg-brand-accent text-black shadow-md' : 'text-brand-text opacity-70 hover:opacity-100'}
-				`}
-						>
-							{item.label}
-						</button>
-					))}
-				</div>
+						{ key: 'hackathon', label: 'Hackathons' },
+						{ key: 'ctf', label: 'CTFs' },
+					]}
+					selected={filter}
+					onSelect={(key) => setFilter(key as 'ctf' | 'hackathon' | 'all')}
+				/>
 			</div>
 
 			{/* Highlighted Competitions */}
@@ -41,77 +33,78 @@ export default function Competitions() {
 				<h2 className="text-2xl font-semibold mb-6">Noteworthy Achievements</h2>
 
 				<div className="grid md:grid-cols-2 gap-10">
-					{filterComps(important).map((comp) => (
-						<motion.div
-							key={comp.name}
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.4 }}
-							className="bg-brand-card border border-brand-secondary backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-						>
-							{/* Card Header */}
-							<div className="flex items-start justify-between">
-								{comp.competitionLink ? (
-									<a href={comp.competitionLink} target="_blank" className="hover:underline text-sm">
+					{filterComps(important).length > 0 &&
+						filterComps(important).map((comp) => (
+							<motion.div
+								key={comp.name}
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.4 }}
+								className="bg-brand-card border border-brand-secondary backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+							>
+								{/* Card Header */}
+								<div className="flex items-start justify-between">
+									{comp.competitionLink ? (
+										<a href={comp.competitionLink} target="_blank" className="hover:underline text-sm">
+											<h3 className="text-xl font-bold">{comp.name}</h3>
+										</a>
+									) : (
 										<h3 className="text-xl font-bold">{comp.name}</h3>
-									</a>
-								) : (
-									<h3 className="text-xl font-bold">{comp.name}</h3>
-								)}
-								<span className="text-sm opacity-70">{comp.month}</span>
-							</div>
-
-							{/* Result */}
-							<p className="mt-2 text-brand-muted text-lg font-semibold">{comp.result}</p>
-
-							{/* Description */}
-							<p className="text-sm mt-3 opacity-90">{comp.description}</p>
-
-							{/* Tags */}
-							{comp.tags && comp.tags.length > 0 && (
-								<div className="flex flex-wrap gap-2 mt-4">
-									{comp.tags.map((tag, i) => (
-										<Tag index={i} key={tag} name={tag} />
-									))}
+									)}
+									<span className="text-sm opacity-70">{comp.month}</span>
 								</div>
-							)}
 
-							{/* Buttons */}
-							<div className="flex gap-3 mt-6">
-								{comp.link && (
-									<a
-										href={comp.link}
-										target="_blank"
-										className="
+								{/* Result */}
+								<p className="mt-2 text-brand-muted text-lg font-semibold">{comp.result}</p>
+
+								{/* Description */}
+								<p className="text-sm mt-3 opacity-90">{comp.description}</p>
+
+								{/* Tags */}
+								{comp.tags && comp.tags.length > 0 && (
+									<div className="flex flex-wrap gap-2 mt-4">
+										{comp.tags.map((tag, i) => (
+											<Tag index={i} key={tag} name={tag} />
+										))}
+									</div>
+								)}
+
+								{/* Buttons */}
+								<div className="flex gap-3 mt-6">
+									{comp.link && (
+										<a
+											href={comp.link}
+											target="_blank"
+											className="
 											flex items-center gap-2 px-4 py-2 
 											border border-brand-accent/40 text-brand-accent 
 											rounded-full text-sm font-semibold
 											hover:bg-brand-accent/10 hover:border-brand-accent 
 											transition-all duration-300
 										"
-									>
-										<span>Writeup</span>
-									</a>
-								)}
+										>
+											<span>Writeup</span>
+										</a>
+									)}
 
-								{comp.certificate && (
-									<a
-										href={comp.certificate}
-										target="_blank"
-										className="
+									{comp.certificate && (
+										<a
+											href={comp.certificate}
+											target="_blank"
+											className="
 											flex items-center gap-2 px-4 py-2
 											border border-brand-accent/40 text-brand-accent 
 											rounded-full text-sm font-semibold
 											hover:bg-brand-accent/10 hover:border-brand-accent
 											transition-all duration-300
 										"
-									>
-										<span>Certificate</span>
-									</a>
-								)}
-							</div>
-						</motion.div>
-					))}
+										>
+											<span>Certificate</span>
+										</a>
+									)}
+								</div>
+							</motion.div>
+						))}
 				</div>
 			</section>
 
@@ -120,13 +113,14 @@ export default function Competitions() {
 				<h2 className="text-2xl font-semibold mb-6">Other Competitions</h2>
 
 				<div className="space-y-5">
-					{filterComps(notImportant).map((comp) => (
-						<motion.div
-							key={comp.name}
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							transition={{ duration: 0.3 }}
-							className="
+					{filterComps(notImportant).length > 0 &&
+						filterComps(notImportant).map((comp) => (
+							<motion.div
+								key={comp.name}
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								transition={{ duration: 0.3 }}
+								className="
 		flex items-center justify-between 
 		bg-brand-card/60 dark:bg-white/10
 		border border-white/10 
@@ -134,35 +128,35 @@ export default function Competitions() {
 		hover:shadow-md hover:bg-brand-card/80
 		transition-all duration-300
 	"
-						>
-							<div>
-								<h3 className="font-semibold text-lg">{comp.name}</h3>
-								<p className="text-sm opacity-70">{comp.month}</p>
-							</div>
+							>
+								<div>
+									<h3 className="font-semibold text-lg">{comp.name}</h3>
+									<p className="text-sm opacity-70">{comp.month}</p>
+								</div>
 
-							<div className="flex gap-4">
-								{comp.link && (
-									<a
-										href={comp.link}
-										target="_blank"
-										className="text-brand-accent text-sm font-semibold hover:underline"
-									>
-										View Product
-									</a>
-								)}
+								<div className="flex gap-4">
+									{comp.link && (
+										<a
+											href={comp.link}
+											target="_blank"
+											className="text-brand-accent text-sm font-semibold hover:underline"
+										>
+											View Product
+										</a>
+									)}
 
-								{comp.competitionLink && (
-									<a
-										href={comp.competitionLink}
-										target="_blank"
-										className="text-brand-accent text-sm font-semibold hover:underline"
-									>
-										See More
-									</a>
-								)}
-							</div>
-						</motion.div>
-					))}
+									{comp.competitionLink && (
+										<a
+											href={comp.competitionLink}
+											target="_blank"
+											className="text-brand-accent text-sm font-semibold hover:underline"
+										>
+											See More
+										</a>
+									)}
+								</div>
+							</motion.div>
+						))}
 				</div>
 			</section>
 		</main>

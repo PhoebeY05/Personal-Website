@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import ExperienceList from '@/components/ExperienceList';
+import PillFilter from '@/components/PillFilter';
 import { experiences } from '@/data/experiences';
 import { useState, useEffect } from 'react';
 
@@ -25,26 +26,16 @@ export default function Experiences() {
 					<p className="opacity-80 text-lg">Work & Volunteering journeys that shaped who I am.</p>
 				</section>
 
-				{/* Toggle Filter */}
-				<div className="flex justify-center mb-10">
-					<div className="flex bg-brand-card/40 border border-brand-secondary p-1 rounded-full shadow-lg backdrop-blur-xl">
-						{[
+				<div className="mb-10">
+					<PillFilter
+						options={[
 							{ key: 'all', label: 'All' },
 							{ key: 'work', label: 'Work' },
 							{ key: 'volunteering', label: 'Volunteering' },
-						].map((item) => (
-							<button
-								key={item.key}
-								onClick={() => setFilter(item.key as 'all' | 'work' | 'volunteering')}
-								className={`
-									px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300
-									${filter === item.key ? 'bg-brand-accent text-black shadow-md' : 'text-brand-text opacity-70 hover:opacity-100'}
-								`}
-							>
-								{item.label}
-							</button>
-						))}
-					</div>
+						]}
+						selected={filter}
+						onSelect={(key) => setFilter(key as 'all' | 'work' | 'volunteering')}
+					/>
 				</div>
 
 				{/* List */}
