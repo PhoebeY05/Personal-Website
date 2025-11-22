@@ -27,8 +27,8 @@ jobs:
         with:
           node-version: 18
           
-      - name: Check Deprecated Dependencies
-        uses: tinovyatkin/action-check-deprecated-js-deps@v2
+      - name: Check for vulnerabilities
+        run: npm audit
 
       - name: Install Dependencies
         run: npm install
