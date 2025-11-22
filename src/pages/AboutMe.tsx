@@ -79,7 +79,7 @@ export default function AboutMe(): JSX.Element {
 								<AppearOnScroll className="md:col-span-1">
 									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
 										<NumberTicker value={6} className="text-4xl font-extrabold tracking-tight text-brand-text" />
-										<p className="text-sm font-medium text-brand-muted">Projects</p>
+										<p className="text-md font-medium text-brand-muted">Projects</p>
 									</div>
 								</AppearOnScroll>
 								<AppearOnScroll className="md:col-span-1">
@@ -90,13 +90,13 @@ export default function AboutMe(): JSX.Element {
 											decimalPlaces={2}
 											className="text-4xl font-extrabold tracking-tight text-brand-text"
 										/>
-										<p className="text-sm font-medium text-brand-muted">/5.00 CAP</p>
+										<p className="text-md font-medium text-brand-muted">/5.00 CAP</p>
 									</div>
 								</AppearOnScroll>
 								<AppearOnScroll className="md:col-span-1">
 									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
 										<NumberTicker value={2} className="text-4xl font-extrabold tracking-tight text-brand-text" />
-										<p className="text-sm font-medium text-brand-muted">Internships</p>
+										<p className="text-md font-medium text-brand-muted">Internships</p>
 									</div>
 								</AppearOnScroll>
 							</div>
