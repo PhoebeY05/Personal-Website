@@ -16,8 +16,8 @@ export default function IndividualSkill() {
 		<main className="relative min-h-screen text-brand-text p-6 md:p-12 z-10">
 			<div className="mx-auto max-w-5xl">
 				<motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-					<section className="py-16 text-center bg-gradient-to-b from-brand-react to-brand-secondary rounded-3xl mb-12">
-						<h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight">{skill.name}</h1>
+					<section className="p-16 text-center bg-gradient-to-b from-brand-react to-brand-secondary rounded-3xl mb-12">
+						<h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight leading-tight">{skill.name}</h1>
 						<p className="text-lg max-w-2xl opacity-80 mx-auto mb-6">{skill.description}</p>
 						<span className="px-4 py-1 rounded-full bg-white/20 border border-brand-card backdrop-blur-md text-sm font-medium capitalize">
 							Level: {skill.level}
