@@ -1,3 +1,4 @@
+import { getCompetitionsFromSkill, type Competition } from '@/data/competitions';
 import type { Experience } from '@/data/experiences';
 import { getExperiencesFromSkill, parseDateFromDuration } from '@/data/experiences';
 import type { Project } from '@/data/projects';
@@ -6,15 +7,17 @@ import { skills } from '@/data/skills';
 import { motion } from 'motion/react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 
-const isProjectEntity = (item: Project | Experience): item is Project => 'month' in item;
+// Detect Experience by presence of 'duration'
+const isExperienceEntity = (item: Project | Experience | Competition): item is Experience => 'duration' in item;
 
 // helper: extract a comparable start date from either Project.month or Experience.duration
-const getStartDate = (item: Project | Experience): Date => {
-	if (isProjectEntity(item)) {
-		const d = new Date(item.month);
+const getStartDate = (item: Project | Experience | Competition): Date => {
+	if (isExperienceEntity(item)) {
+		const d = parseDateFromDuration(item.duration);
 		return isNaN(d.getTime()) ? new Date(0) : d;
 	}
-	const d = parseDateFromDuration(item.duration);
+	// item.month may be undefined, fall back to epoch (new Date(0))
+	const d = item.month ? new Date(item.month) : new Date(0);
 	return isNaN(d.getTime()) ? new Date(0) : d;
 };
 
@@ -26,11 +29,14 @@ export default function IndividualSkill() {
 
 	const relatedProjects = getProjectsFromSkill(skill.name);
 	const relatedExperiences = getExperiencesFromSkill(skill.name);
+	const relatedCompetitions = getCompetitionsFromSkill(skill.name);
 
 	// unified list sorted by start date (newest first)
-	const related: (Project | Experience)[] = [...relatedProjects, ...relatedExperiences].sort(
-		(a, b) => getStartDate(b).getTime() - getStartDate(a).getTime()
-	);
+	const related: (Project | Experience | Competition)[] = [
+		...relatedProjects,
+		...relatedExperiences,
+		...relatedCompetitions,
+	].sort((a, b) => getStartDate(b).getTime() - getStartDate(a).getTime());
 	const toSlug = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
 
 	return (
@@ -55,7 +61,7 @@ export default function IndividualSkill() {
 						const isLeft = index % 2 === 0;
 						return (
 							<motion.div
-								key={r.name}
+								key={`${r.name}-${isExperienceEntity(r) ? 'exp' : 'other'}-${index}`}
 								initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
 								animate={{ opacity: 1, x: 0 }}
 								transition={{ delay: index * 0.15 }}
@@ -69,7 +75,7 @@ export default function IndividualSkill() {
 											!isLeft ? 'md:right-6' : 'md:left-6'
 										}`}
 									>
-										{isProjectEntity(r) ? r.month : r.duration}
+										{!isExperienceEntity(r) ? r.month : r.duration}
 									</span>
 								</div>
 								{/* Card */}
@@ -79,7 +85,7 @@ export default function IndividualSkill() {
 									}`}
 								>
 									<Link
-										to={isProjectEntity(r) ? `/projects/${toSlug(r.name)}` : `/experience/${toSlug(r.name)}`}
+										to={!isExperienceEntity(r) ? `/projects/${toSlug(r.name)}` : `/experience/${toSlug(r.name)}`}
 										className="group block"
 									>
 										<div className="p-6 rounded-2xl bg-brand-card backdrop-blur border border-brand-react shadow-sm transition-transform duration-200 group-hover:scale-[1.02]">
