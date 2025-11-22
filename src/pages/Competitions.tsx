@@ -1,12 +1,8 @@
 import Tag from '@/components/Tag';
-import { competitions } from '@/data/competitions';
+import { important, notImportant } from '@/data/competitions';
 import { motion } from 'framer-motion';
 
 export default function Competitions() {
-	// Split competitions by importance
-	const highlighted = competitions.filter((c) => c.result && c.result !== 'Participation');
-	const participated = competitions.filter((c) => !c.result || c.result === 'Participation');
-
 	return (
 		<main className="max-w-6xl mx-auto p-6 md:p-12 text-brand-text">
 			<h1 className="text-4xl md:text-5xl font-bold text-center mb-12">Competitions</h1>
@@ -16,7 +12,7 @@ export default function Competitions() {
 				<h2 className="text-2xl font-semibold mb-6">Noteworthy Achievements</h2>
 
 				<div className="grid md:grid-cols-2 gap-10">
-					{highlighted.map((comp) => (
+					{important.map((comp) => (
 						<motion.div
 							key={comp.name}
 							initial={{ opacity: 0, y: 20 }}
@@ -26,7 +22,13 @@ export default function Competitions() {
 						>
 							{/* Card Header */}
 							<div className="flex items-start justify-between">
-								<h3 className="text-xl font-bold">{comp.name}</h3>
+								{comp.competitionLink ? (
+									<a href={comp.competitionLink} target="_blank" className="hover:underline text-sm">
+										<h3 className="text-xl font-bold">{comp.name}</h3>
+									</a>
+								) : (
+									<h3 className="text-xl font-bold">{comp.name}</h3>
+								)}
 								<span className="text-sm opacity-70">{comp.month}</span>
 							</div>
 
@@ -46,15 +48,36 @@ export default function Competitions() {
 							)}
 
 							{/* Buttons */}
-							<div className="flex gap-4 mt-5">
+							<div className="flex gap-3 mt-6">
 								{comp.link && (
-									<a href={comp.link} target="_blank" className="text-brand-accent hover:underline text-sm">
-										View Writeup
+									<a
+										href={comp.link}
+										target="_blank"
+										className="
+											flex items-center gap-2 px-4 py-2 
+											border border-brand-accent/40 text-brand-accent 
+											rounded-full text-sm font-semibold
+											hover:bg-brand-accent/10 hover:border-brand-accent 
+											transition-all duration-300
+										"
+									>
+										<span>Writeup</span>
 									</a>
 								)}
+
 								{comp.certificate && (
-									<a href={comp.certificate} target="_blank" className="text-brand-accent hover:underline text-sm">
-										Certificate
+									<a
+										href={comp.certificate}
+										target="_blank"
+										className="
+											flex items-center gap-2 px-4 py-2
+											border border-brand-accent/40 text-brand-accent 
+											rounded-full text-sm font-semibold
+											hover:bg-brand-accent/10 hover:border-brand-accent
+											transition-all duration-300
+										"
+									>
+										<span>Certificate</span>
 									</a>
 								)}
 							</div>
@@ -63,29 +86,52 @@ export default function Competitions() {
 				</div>
 			</section>
 
-			{/* 📄 Participation Only */}
-			<section>
+			{/* Participation Only */}
+			<section className="bg-brand-secondary p-4 rounded-md">
 				<h2 className="text-2xl font-semibold mb-6">Other Competitions</h2>
 
 				<div className="space-y-5">
-					{participated.map((comp) => (
+					{notImportant.map((comp) => (
 						<motion.div
 							key={comp.name}
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							transition={{ duration: 0.3 }}
-							className="flex items-center justify-between bg-white/5 dark:bg-white/10 border border-white/5 p-4 rounded-xl"
+							className="
+		flex items-center justify-between 
+		bg-brand-card/60 dark:bg-white/10
+		border border-white/10 
+		p-5 rounded-xl shadow-sm
+		hover:shadow-md hover:bg-brand-card/80
+		transition-all duration-300
+	"
 						>
 							<div>
-								<h3 className="font-medium text-lg">{comp.name}</h3>
+								<h3 className="font-semibold text-lg">{comp.name}</h3>
 								<p className="text-sm opacity-70">{comp.month}</p>
 							</div>
 
-							{comp.competitionLink && (
-								<a href={comp.competitionLink} target="_blank" className="text-brand-accent text-sm hover:underline">
-									View
-								</a>
-							)}
+							<div className="flex gap-4">
+								{comp.link && (
+									<a
+										href={comp.link}
+										target="_blank"
+										className="text-brand-accent text-sm font-semibold hover:underline"
+									>
+										View Product
+									</a>
+								)}
+
+								{comp.competitionLink && (
+									<a
+										href={comp.competitionLink}
+										target="_blank"
+										className="text-brand-accent text-sm font-semibold hover:underline"
+									>
+										See More
+									</a>
+								)}
+							</div>
 						</motion.div>
 					))}
 				</div>

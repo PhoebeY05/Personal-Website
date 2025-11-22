@@ -9,7 +9,7 @@ export interface Competition {
 	name: string;
 	description: string;
 	competitionLink?: string; // Link to competition website
-	month?: string;
+	month: string;
 	result?: string;
 	certificate?: string;
 	link?: string; // Link to Writeup or Project
@@ -22,11 +22,11 @@ export const competitions: Competition[] = [
 		name: 'IDEATE 2025',
 		description: 'Participated in IDEATE 2025, a hackathon focused on innovative project ideation.',
 		month: '2025',
-		result: '',
+		result: 'Participation',
 		competitionLink: 'https://www.ideate2025.com/',
-		certificate: 'Participation',
+		certificate: '',
 		link: '',
-		tags: [],
+		tags: ['Product Ideation'],
 	},
 	{
 		type: 'hackathon',
@@ -37,8 +37,8 @@ export const competitions: Competition[] = [
 		result: 'Participation',
 		competitionLink: 'https://tiktoktechjam2024.devpost.com/',
 		certificate: '',
-		link: '',
-		tags: ['Product Ideation', 'UI/UX', 'Frontend Development', 'Hackathon'],
+		link: 'https://github.com/PhoebeY05/TikTok-TechJam',
+		tags: ['Product Ideation', 'Full-Stack', 'AI'],
 	},
 	{
 		type: 'hackathon',
@@ -61,7 +61,7 @@ export const competitions: Competition[] = [
 		competitionLink: 'https://learn.aisingapore.org/national-ai-student-challenge/',
 		certificate: '',
 		link: '',
-		tags: ['Python', 'Jupyter Notebook'],
+		tags: ['Python', 'Jupyter Notebook', 'AI'],
 	},
 	{
 		type: 'ctf',
@@ -73,7 +73,7 @@ export const competitions: Competition[] = [
 		competitionLink: 'https://cyberthon.hci.edu.sg/',
 		certificate: Cyberthon,
 		link: '',
-		tags: ['Linux', 'Reverse Engineering', 'Pwn', 'Network', 'Cryptography', 'Web', 'Mobile Malware Analysis'],
+		tags: ['Kali Linux', 'Reverse Engineering', 'Pwn', 'Network', 'Cryptography', 'Web', 'Mobile Malware Analysis'],
 	},
 	{
 		type: 'ctf',
@@ -114,3 +114,14 @@ export const competitions: Competition[] = [
 export function getCompetitionsFromSkill(skill: string) {
 	return competitions.filter((comp) => comp.tags?.includes(skill));
 }
+
+export const important = competitions
+	.filter((comp) => comp.result != 'Participation' || comp.link || comp.certificate)
+	.sort((a, b) => {
+		const dateA = new Date(a.month);
+		const dateB = new Date(b.month);
+		return dateB.getTime() - dateA.getTime();
+	});
+export const notImportant = competitions.filter(
+	(comp) => comp.result == 'Participation' && !comp.link && !comp.certificate
+);
