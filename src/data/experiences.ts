@@ -48,7 +48,7 @@ export const experiences: Experience[] = [
 		],
 		images: [],
 		certificate: '',
-		tags: [],
+		tags: ['Golang', 'React', 'Frontend', 'Backend', 'Mobile', 'DevOps', 'Expo', 'Full-stack'],
 	},
 
 	{
@@ -69,7 +69,7 @@ export const experiences: Experience[] = [
 		],
 		images: [],
 		certificate: '',
-		tags: [],
+		tags: ['Hardware', 'Testing', 'Documentation', 'Soldering'],
 	},
 
 	{
@@ -94,7 +94,7 @@ export const experiences: Experience[] = [
 		],
 		images: [],
 		certificate: '',
-		tags: [],
+		tags: ['Scratch', 'Teaching', 'Programming Basics'],
 	},
 	{
 		type: 'volunteering',
@@ -111,6 +111,23 @@ export const experiences: Experience[] = [
 		],
 		images: [],
 		certificate: '',
-		tags: [],
+		tags: ['Digital Safety', 'Senior Care'],
+	},
+	{
+		type: 'work',
+		name: 'CS1101S TA',
+		duration: 'Aug 2025 – November 2025',
+		role: 'Undergraduate Teaching Assistant',
+		organisation: 'National University of Singapore',
+		description:
+			'Prepared and conducted weekly tutorial lessons, evaluated twice-weekly programming assignments, and held consultations, for a class of 8 students. Course: CS1101S Programming Methodology.',
+		tasks: [
+			'Prepared weekly tutorial lessons',
+			'Evaluated programming assignments twice a week',
+			'Guided and evaluated student pairs during assessments',
+		],
+		images: [],
+		certificate: '',
+		tags: ['Teaching', 'Source'],
 	},
 ];
