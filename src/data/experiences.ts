@@ -8,6 +8,7 @@ export interface Experience {
 	tasks: string[];
 	images: string[];
 	certificate: string;
+	tags: string[];
 }
 
 export const experiences: Experience[] = [
@@ -47,6 +48,7 @@ export const experiences: Experience[] = [
 		],
 		images: [],
 		certificate: '',
+		tags: [],
 	},
 
 	{
@@ -67,6 +69,7 @@ export const experiences: Experience[] = [
 		],
 		images: [],
 		certificate: '',
+		tags: [],
 	},
 
 	{
@@ -91,6 +94,7 @@ export const experiences: Experience[] = [
 		],
 		images: [],
 		certificate: '',
+		tags: [],
 	},
 	{
 		type: 'volunteering',
@@ -107,5 +111,6 @@ export const experiences: Experience[] = [
 		],
 		images: [],
 		certificate: '',
+		tags: [],
 	},
 ];
