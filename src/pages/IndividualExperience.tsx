@@ -108,13 +108,13 @@ export default function IndividualExperience(): JSX.Element {
 						<div className="relative inline-block">
 							<Stack
 								randomRotation={true}
-								sensitivity={180}
-								sendToBackOnClick={false}
+								sensitivity={200}
+								sendToBackOnClick={true}
 								cardDimensions={cardSize}
 								cardsData={imageCards}
 							/>
 							<p className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-max text-md opacity-60">
-								Swipe to see more!
+								Swipe/Click to see more!
 							</p>
 						</div>
 					</div>
