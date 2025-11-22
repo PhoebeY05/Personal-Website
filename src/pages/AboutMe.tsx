@@ -3,8 +3,8 @@ import { Highlighter } from '@/components/ui/highlighter';
 import { HyperText } from '@/components/ui/hyper-text';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import type { JSX } from 'react';
-import Sketch from '../assets/sketch.png'; // Profile image
 import Placeholder from '../assets/placeholder.png';
+import Sketch from '../assets/sketch.png'; // Profile image
 import AppearOnScroll from '../components/AppearOnScroll'; // new wrapper for motion.section
 import SkillProgress from '../components/SkillProgress';
 import { skills, type Skill } from '../data/skills';
@@ -51,7 +51,7 @@ export default function AboutMe(): JSX.Element {
 					</article>
 
 					{/* Right column: About paragraph */}
-					<article className="md:col-span-2 flex flex-col h-full justify-space-between">
+					<article className="md:col-span-2 flex flex-col h-full gap-6">
 						<AppearOnScroll className="flex-1">
 							<div className="bg-brand-card rounded-xl p-6 shadow-2xl space-y-4">
 								<h2 className="relative text-2xl font-bold mb-6 text-center md:text-left">
@@ -61,19 +61,19 @@ export default function AboutMe(): JSX.Element {
 								</h2>
 								<p>
 									I thrive in structured, hands-on projects where I can create practical solutions, and I enjoy learning
-									through experience rather than memorization. While I’m detail-oriented and love refining ideas, I also
-									embrace challenges that push me out of my comfort zone. Beyond tech, I’m reflective, empathetic in
+									through experience rather than memorization. While I'm detail-oriented and love refining ideas, I also
+									embrace challenges that push me out of my comfort zone. Beyond tech, I'm reflective, empathetic in
 									thought, and constantly looking for ways to grow and improve.
 								</p>
 							</div>
 						</AppearOnScroll>
-						<div className="bg-brand-card rounded-xl p-6 shadow-2xl flex-col justify-space-between h-1/2">
-							<h2 className="relative text-2xl font-bold mb-6 text-center md:text-left">
+						<div className="bg-brand-card rounded-xl p-6 shadow-2xl flex flex-col flex-1">
+							<h2 className="relative text-2xl font-bold mb-4 text-center md:text-left">
 								<Highlighter action="underline" color="#FF9800">
 									Currently
 								</Highlighter>
 							</h2>
-							<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+							<div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start flex-1 content-center">
 								{/* centered card */}
 								<AppearOnScroll className="md:col-span-1">
 									<div className="bg-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
