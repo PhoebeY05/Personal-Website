@@ -2,7 +2,7 @@
 const ReadingRecords = '/demos/ReadingRecords/reading_records.mp4';
 
 // AI Content Generator demos
-const AIContentGenerator1 = '/demos/ContentGenerator/content_generator.mov';
+const AIContentGenerator1 = '/demos/ContentGenerator/content_generator.mp4';
 const AIContentGenerator2 = '/demos/ContentGenerator/content_generator.png';
 
 // Blackjack Calculator demos

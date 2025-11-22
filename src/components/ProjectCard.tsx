@@ -1,6 +1,7 @@
 import { Code, ExternalLink, PlayCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Tag from './Tag';
+import { isDemoVideo } from '@/data/projects';
 
 type ProjectCardProps = {
 	name: string;
@@ -14,6 +15,7 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ name, description, month, link, github, demo = [], tags }: ProjectCardProps) {
 	const projectSlug = name.toLowerCase().replace(/\s+/g, '-');
+	const demoVideos = demo.filter(isDemoVideo) ?? [];
 
 	return (
 		<div className="group rounded-2xl border p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 bg-brand-card my-4">
@@ -60,10 +62,10 @@ export default function ProjectCard({ name, description, month, link, github, de
 					</a>
 				)}
 
-				{demo.length > 0 && (
+				{demoVideos.length == 1 && (
 					<div className="flex gap-3">
 						<a
-							href={name}
+							href={demoVideos[0]}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="flex items-center gap-1 text-sm text-purple-600 hover:underline"
