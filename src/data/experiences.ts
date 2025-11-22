@@ -113,3 +113,15 @@ export const experiences: Experience[] = [
 		tags: ['Teaching', 'Source'],
 	},
 ];
+
+export function parseDateFromDuration(duration: string): Date {
+	const parts = duration.split('–').map((p) => p.trim());
+	const firstPart = parts[0];
+	const date = new Date(firstPart);
+	if (!isNaN(date.getTime())) return date;
+	return new Date();
+}
+
+export function getExperiencesFromSkill(skill: string) {
+	return experiences.filter((exp) => exp.tags.includes(skill));
+}

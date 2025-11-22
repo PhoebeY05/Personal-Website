@@ -1,4 +1,4 @@
-import type { Experience } from '@/data/experiences';
+import { parseDateFromDuration, type Experience } from '@/data/experiences';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,14 +6,6 @@ interface ExperienceListProps {
 	experiences: Experience[];
 	index: number;
 }
-
-const parseDateFromDuration = (duration: string): Date => {
-	const parts = duration.split('–').map((p) => p.trim());
-	const firstPart = parts[0];
-	const date = new Date(firstPart);
-	if (!isNaN(date.getTime())) return date;
-	return new Date();
-};
 
 export default function ExperienceList({ experiences, index }: ExperienceListProps) {
 	const sortedExperiences = [...experiences].sort(

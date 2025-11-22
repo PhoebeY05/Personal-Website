@@ -13,12 +13,12 @@ export default function IndividualExperience(): JSX.Element {
 	if (!experience) return <Navigate to="/404" replace />;
 
 	return (
-		<main className="min-h-screen w-full bg-brand-bg text-brand-text p-6 md:p-12 flex justify-center">
+		<main className="min-h-screen w-full text-brand-text p-6 md:p-12 flex justify-center">
 			<motion.div
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5 }}
-				className="max-w-4xl w-full bg-brand-card/70 backdrop-blur-xl border border-white/20 rounded-3xl p-8 md:p-12 shadow-xl"
+				className="max-w-4xl w-full bg-brand-card backdrop-blur-xl border border-brand-muted rounded-3xl p-8 md:p-12 shadow-xl"
 			>
 				{/* Header */}
 				<h1 className="text-4xl md:text-5xl font-bold mb-2">{experience.role}</h1>
@@ -69,7 +69,7 @@ export default function IndividualExperience(): JSX.Element {
 							href={experience.certificate}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="text-indigo-600 hover:underline"
+							className="text-brand-accent hover:underline"
 						>
 							View Certificate
 						</a>
