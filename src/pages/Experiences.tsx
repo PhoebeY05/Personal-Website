@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 
 export default function Experiences() {
 	const [index, setIndex] = useState(0);
-	const [bgIndex, setBgIndex] = useState(0); // background applied after transition
 
 	const workExperiences = experiences.filter((exp) => exp.type === 'work');
 	const volunteerExperiences = experiences.filter((exp) => exp.type === 'volunteering');
@@ -25,20 +24,8 @@ export default function Experiences() {
 		return () => window.removeEventListener('keydown', handleKey);
 	}, []);
 
-	// Apply background only after slide animation
-	useEffect(() => {
-		if (index !== bgIndex) {
-			const t = setTimeout(() => setBgIndex(index), 100);
-			return () => clearTimeout(t);
-		}
-	}, [index, bgIndex]);
-
 	return (
-		<main
-			className={`relative w-screen min-h-screen overflow-x-hidden overflow-y-auto ${
-				index == 0 ? 'bg-brand-bg' : 'bg-brand-card'
-			}`}
-		>
+		<main className="relative w-screen min-h-screen overflow-x-hidden overflow-y-auto">
 			{/* SLIDER WRAPPER */}
 			<div
 				className="flex h-full transition-transform duration-700 ease-in-out"
@@ -57,30 +44,32 @@ export default function Experiences() {
 				))}
 			</div>
 
-			{/* LEFT SLIM BORDER WITH PROTRUDING ARROW */}
+			{/* LEFT FIXED ARROW */}
 			{index === 1 && (
-				<div
+				<button
 					onClick={goLeft}
-					className="absolute left-0 top-0 h-full w-2 bg-brand-bg cursor-pointer flex items-center justify-end"
+					className="fixed left-0 top-1/2 -translate-y-1/2 px-2 py-2 cursor-pointer group"
+					aria-label="Previous"
 				>
 					<ChevronLeft
 						size={48}
-						className="rounded-xs text-brand-text -mr-6 hover:scale-110 transition-transform bg-brand-bg"
+						className="text-brand-text bg-brand-bg/70 rounded-r-lg shadow-lg backdrop-blur-sm transition-transform group-hover:scale-110"
 					/>
-				</div>
+				</button>
 			)}
 
-			{/* RIGHT SLIM BORDER WITH PROTRUDING ARROW */}
+			{/* RIGHT FIXED ARROW */}
 			{index === 0 && (
-				<div
+				<button
 					onClick={goRight}
-					className="absolute right-0 top-0 h-full w-2 bg-brand-card cursor-pointer flex items-center justify-start"
+					className="fixed right-0 top-1/2 -translate-y-1/2 px-2 py-2 cursor-pointer group"
+					aria-label="Next"
 				>
 					<ChevronRight
 						size={48}
-						className="rounded-xs text-brand-text -ml-6 hover:scale-110 transition-transform bg-brand-card"
+						className="text-brand-text bg-brand-card/70 rounded-l-lg shadow-lg backdrop-blur-sm transition-transform group-hover:scale-110"
 					/>
-				</div>
+				</button>
 			)}
 		</main>
 	);
