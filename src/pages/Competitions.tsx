@@ -12,6 +12,9 @@ export default function Competitions() {
 		return arr.filter((c) => c.type === filter);
 	};
 
+	const filteredImportant = filterComps(important);
+	const filteredNotImportant = filterComps(notImportant);
+
 	return (
 		<main className="max-w-6xl mx-auto p-6 md:p-12 text-brand-text">
 			<h1 className="text-4xl md:text-5xl font-bold text-center mb-12">Competitions</h1>
@@ -33,10 +36,10 @@ export default function Competitions() {
 				<h2 className="text-2xl font-semibold mb-6">Noteworthy Achievements</h2>
 
 				<div className="grid md:grid-cols-2 gap-10">
-					{filterComps(important).length > 0 &&
-						filterComps(important).map((comp) => (
+					{filteredImportant.length > 0 &&
+						filteredImportant.map((comp, i) => (
 							<motion.div
-								key={comp.name}
+								key={`${comp.name}-${filter}-${i}`} // unique key
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ duration: 0.4 }}
@@ -113,21 +116,21 @@ export default function Competitions() {
 				<h2 className="text-2xl font-semibold mb-6">Other Competitions</h2>
 
 				<div className="space-y-5">
-					{filterComps(notImportant).length > 0 &&
-						filterComps(notImportant).map((comp) => (
+					{filteredNotImportant.length > 0 &&
+						filteredNotImportant.map((comp) => (
 							<motion.div
 								key={comp.name}
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								transition={{ duration: 0.3 }}
 								className="
-		flex items-center justify-between 
-		bg-brand-card/60 dark:bg-white/10
-		border border-white/10 
-		p-5 rounded-xl shadow-sm
-		hover:shadow-md hover:bg-brand-card/80
-		transition-all duration-300
-	"
+									flex items-center justify-between 
+									bg-brand-card/60 dark:bg-white/10
+									border border-white/10 
+									p-5 rounded-xl shadow-sm
+									hover:shadow-md hover:bg-brand-card/80
+									transition-all duration-300
+								"
 							>
 								<div>
 									<h3 className="font-semibold text-lg">{comp.name}</h3>
