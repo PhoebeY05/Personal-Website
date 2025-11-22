@@ -44,31 +44,35 @@ export default function Experiences() {
 				))}
 			</div>
 
-			{/* LEFT FIXED ARROW */}
+			{/* LEFT FIXED ARROW (label: Work) */}
 			{index === 1 && (
 				<button
 					onClick={goLeft}
-					className="fixed left-0 top-1/2 -translate-y-1/2 px-2 py-2 cursor-pointer group"
-					aria-label="Previous"
+					className="fixed left-0 top-1/2 -translate-y-1/2 px-2 py-2 cursor-pointer group flex flex-col items-center"
+					aria-label="Previous (Work Experience)"
 				>
 					<ChevronLeft
 						size={48}
-						className="text-brand-text bg-brand-bg/70 rounded-r-lg shadow-lg backdrop-blur-sm transition-transform group-hover:scale-110"
+						className="text-brand-text bg-brand-bg rounded-r-lg shadow-lg backdrop-blur-sm transition-transform group-hover:scale-110"
 					/>
+					<span className="mt-1 text-xs font-semibold tracking-wide text-brand-text px-2 py-0.5 rounded">Work</span>
 				</button>
 			)}
 
-			{/* RIGHT FIXED ARROW */}
+			{/* RIGHT FIXED ARROW (label: Volunteer) */}
 			{index === 0 && (
 				<button
 					onClick={goRight}
-					className="fixed right-0 top-1/2 -translate-y-1/2 px-2 py-2 cursor-pointer group"
-					aria-label="Next"
+					className="fixed right-0 top-1/2 -translate-y-1/2 px-2 py-2 cursor-pointer group flex flex-col items-center"
+					aria-label="Next (Volunteer Experience)"
 				>
 					<ChevronRight
 						size={48}
-						className="text-brand-text bg-brand-card/70 rounded-l-lg shadow-lg backdrop-blur-sm transition-transform group-hover:scale-110"
+						className="text-brand-text bg-brand-bg rounded-l-lg shadow-lg backdrop-blur-sm transition-transform group-hover:scale-110"
 					/>
+					<span className="mt-1 text-xs font-semibold tracking-wide text-brand-text px-2 py-0.5 rounded">
+						Volunteering
+					</span>
 				</button>
 			)}
 		</main>
