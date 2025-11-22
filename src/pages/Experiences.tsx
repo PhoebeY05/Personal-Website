@@ -1,80 +1,63 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/set-state-in-effect */
 import ExperienceList from '@/components/ExperienceList';
-import { experiences, type Experience } from '@/data/experiences';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { experiences } from '@/data/experiences';
+import { useState, useEffect } from 'react';
 
 export default function Experiences() {
-	const [index, setIndex] = useState(0);
+	const [filter, setFilter] = useState<'all' | 'work' | 'volunteering'>('all');
+	const [visible, setVisible] = useState(false);
 
-	const workExperiences = experiences.filter((exp) => exp.type === 'work');
-	const volunteerExperiences = experiences.filter((exp) => exp.type === 'volunteering');
-	const capitalise = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
-	const pages: Experience[][] = [workExperiences, volunteerExperiences];
+	// Filter experiences
+	const filtered = experiences.filter((exp) => (filter === 'all' ? true : exp.type === filter));
 
-	const goLeft = () => setIndex((prev) => (prev === 0 ? pages.length - 1 : prev - 1));
-	const goRight = () => setIndex((prev) => (prev === pages.length - 1 ? 0 : prev + 1));
-
+	// Small fade animation on filter change
 	useEffect(() => {
-		const handleKey = (e: KeyboardEvent) => {
-			if (e.key === 'ArrowRight') goRight();
-			if (e.key === 'ArrowLeft') goLeft();
-		};
-		window.addEventListener('keydown', handleKey);
-		return () => window.removeEventListener('keydown', handleKey);
-	}, []);
+		setVisible(false);
+		setTimeout(() => setVisible(true), 50);
+	}, [filter]);
 
 	return (
-		<main className="relative w-screen min-h-screen overflow-x-hidden overflow-y-auto">
-			{/* SLIDER WRAPPER */}
-			<div
-				className="flex h-full transition-transform duration-700 ease-in-out"
-				style={{
-					width: `${pages.length * 100}vw`,
-					transform: `translateX(-${index * 100}vw)`,
-				}}
-			>
-				{pages.map((page, i) => (
-					<div key={i} className="w-screen flex flex-col items-center pb-16">
-						<h1 className="text-4xl md:text-5xl font-bold text-center mt-8 tracking-tight">
-							{capitalise(page[0].type) + ' Experience'}
-						</h1>
-						<ExperienceList experiences={page} index={index} />
+		<main className="relative min-h-screen p-6 md:p-12 text-brand-text">
+			<div className="max-w-5xl mx-auto">
+				{/* Header */}
+				<section className="text-center mb-10">
+					<h1 className="text-4xl md:text-5xl font-bold mb-3">Experience</h1>
+					<p className="opacity-80 text-lg">Work & Volunteering journeys that shaped who I am.</p>
+				</section>
+
+				{/* Toggle Filter */}
+				<div className="flex justify-center mb-10">
+					<div className="flex bg-brand-card/40 border border-brand-secondary p-1 rounded-full shadow-lg backdrop-blur-xl">
+						{[
+							{ key: 'all', label: 'All' },
+							{ key: 'work', label: 'Work' },
+							{ key: 'volunteering', label: 'Volunteering' },
+						].map((item) => (
+							<button
+								key={item.key}
+								onClick={() => setFilter(item.key as 'all' | 'work' | 'volunteering')}
+								className={`
+									px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300
+									${filter === item.key ? 'bg-brand-accent text-black shadow-md' : 'text-brand-text opacity-70 hover:opacity-100'}
+								`}
+							>
+								{item.label}
+							</button>
+						))}
 					</div>
-				))}
+				</div>
+
+				{/* List */}
+				<div
+					className={`transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+				>
+					{filtered.length > 0 ? (
+						<ExperienceList experiences={filtered} />
+					) : (
+						<p className="text-center opacity-60">No experiences available for this category.</p>
+					)}
+				</div>
 			</div>
-
-			{/* LEFT FIXED ARROW (label: Work) */}
-			{index === 1 && (
-				<button
-					onClick={goLeft}
-					className="fixed left-0 top-1/2 -translate-y-1/2 px-2 py-2 cursor-pointer group flex flex-col items-center"
-					aria-label="Previous (Work Experience)"
-				>
-					<ChevronLeft
-						size={48}
-						className="text-brand-text bg-brand-bg rounded-r-lg shadow-lg backdrop-blur-sm transition-transform group-hover:scale-110"
-					/>
-					<span className="mt-1 text-xs font-semibold tracking-wide text-brand-text px-2 py-0.5 rounded">Work</span>
-				</button>
-			)}
-
-			{/* RIGHT FIXED ARROW (label: Volunteer) */}
-			{index === 0 && (
-				<button
-					onClick={goRight}
-					className="fixed right-0 top-1/2 -translate-y-1/2 px-2 py-2 cursor-pointer group flex flex-col items-center"
-					aria-label="Next (Volunteer Experience)"
-				>
-					<ChevronRight
-						size={48}
-						className="text-brand-text bg-brand-bg rounded-l-lg shadow-lg backdrop-blur-sm transition-transform group-hover:scale-110"
-					/>
-					<span className="mt-1 text-xs font-semibold tracking-wide text-brand-text px-2 py-0.5 rounded">
-						Volunteering
-					</span>
-				</button>
-			)}
 		</main>
 	);
 }

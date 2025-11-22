@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 interface ExperienceListProps {
 	experiences: Experience[];
-	index: number;
 }
 
 export default function ExperienceList({ experiences }: ExperienceListProps) {
