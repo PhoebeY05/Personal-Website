@@ -40,7 +40,7 @@ export const projects: Project[] = [
 		link: 'https://phoebe05.pythonanywhere.com/',
 		github: 'https://github.com/PhoebeY05/Reading-Records',
 		demo: [ReadingRecords],
-		tags: ['Flask', 'Jinja', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'SQLite3'],
+		tags: ['Flask', 'Jinja', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'SQLite3', 'Python'],
 	},
 	{
 		name: 'AI Content Generator',
@@ -50,7 +50,7 @@ export const projects: Project[] = [
 		link: 'https://content-generator-xlck.onrender.com',
 		github: 'https://github.com/PhoebeY05/TikTok-TechJam',
 		demo: [AIContentGenerator1, AIContentGenerator2],
-		tags: ['Flask', 'Bootstrap', 'HuggingFace APIs', 'Gradio Client', 'MoviePy', 'FFmpeg', 'Python', 'OpenCV', 'PIL'],
+		tags: ['Flask', 'Jinja', 'HTML', 'Bootstrap', 'HuggingFace', 'Gradio Client', 'FFmpeg', 'Python', 'OpenCV', 'PIL'],
 	},
 	{
 		name: 'Blackjack Score Calculator',
@@ -69,7 +69,7 @@ export const projects: Project[] = [
 			BlackjackCalculator7,
 			BlackjackCalculator8,
 		],
-		tags: ['React Native', 'Expo', 'JavaScript'],
+		tags: ['React Native', 'Expo Go', 'JavaScript'],
 	},
 	{
 		name: 'Web Forum',
@@ -79,7 +79,7 @@ export const projects: Project[] = [
 		link: 'https://webforum-ydus.onrender.com/',
 		github: 'https://github.com/PhoebeY05/CVWO-Winter-Assignment-2024',
 		demo: [],
-		tags: ['Ruby on Rails', 'SQLite3', 'Node.js', 'Yarn', 'JavaScript'],
+		tags: ['Ruby on Rails', 'SQLite3', 'Node.js', 'JavaScript'],
 	},
 	{
 		name: 'Telegram Birthday Bot',
