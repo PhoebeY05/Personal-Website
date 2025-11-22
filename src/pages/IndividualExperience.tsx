@@ -21,17 +21,17 @@ export default function IndividualExperience(): JSX.Element {
 		img: src,
 	}));
 
-	const [cardSize, setCardSize] = useState(() => ({
-		width: Math.round(window.innerWidth * 0.4),
-		height: Math.round(window.innerWidth * 0.4),
-	}));
+	const computeCardSize = () => {
+		const w = window.innerWidth;
+		const factor = w >= 768 ? 0.4 : 0.8; // md breakpoint
+		const size = Math.round(w * factor);
+		return { width: size, height: size };
+	};
+
+	const [cardSize, setCardSize] = useState(() => computeCardSize());
 
 	useEffect(() => {
-		const onResize = () =>
-			setCardSize({
-				width: Math.round(window.innerWidth * 0.4),
-				height: Math.round(window.innerWidth * 0.4),
-			});
+		const onResize = () => setCardSize(computeCardSize());
 		window.addEventListener('resize', onResize);
 		return () => window.removeEventListener('resize', onResize);
 	}, []);
