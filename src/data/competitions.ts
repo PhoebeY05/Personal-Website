@@ -70,30 +70,21 @@ export const competitions: Competition[] = [
 			'First experience with cybersecurity competitions. Competed in analytics challenges and participated in related tech workshops.',
 		month: 'April 2023',
 		result: '57 out of 87',
-		competitionLink: 'https://www.notion.so/Cyberthon-Notes-7cbc88f244a44758aa124ae53a4de4aa?pvs=21',
+		competitionLink: 'https://cyberthon.hci.edu.sg/',
 		certificate: Cyberthon,
-		link: 'https://cyberthon.hci.edu.sg/',
-		tags: [
-			'Linux',
-			'Reverse Engineering',
-			'Pwn',
-			'Network',
-			'Cryptography',
-			'Web',
-			'Analytics in Cybersecurity',
-			'Mobile Malware Analysis',
-		],
+		link: '',
+		tags: ['Linux', 'Reverse Engineering', 'Pwn', 'Network', 'Cryptography', 'Web', 'Mobile Malware Analysis'],
 	},
 	{
 		type: 'ctf',
 		name: 'SEETF 2023',
 		description: 'Participated in SEETF 2023 (Singapore & regional students).',
-		month: '2023',
+		month: 'June 2023',
 		result: '169 out of 431 (all), 42 out of 74 (SG students)',
 		competitionLink: 'https://2023.seetf.sg/',
 		certificate: '',
 		link: '',
-		tags: [],
+		tags: ['Cryptography', 'Reverse Engineering', 'Pwn', 'Web'],
 	},
 	{
 		type: 'ctf',
@@ -104,7 +95,7 @@ export const competitions: Competition[] = [
 		competitionLink: 'https://2023.imaginaryctf.org/',
 		certificate: '',
 		link: '',
-		tags: [],
+		tags: ['Forensics', 'Cryptography', 'Forensics', 'Reverse Engineering', 'Pwn', 'Web'],
 	},
 	{
 		type: 'ctf',
@@ -116,6 +107,10 @@ export const competitions: Competition[] = [
 		competitionLink: 'https://whitehacks.computing.smu.edu.sg/',
 		certificate: Whitehacks,
 		link: 'https://github.com/PhoebeY05/SMU-Whitehacks-Writeups',
-		tags: [],
+		tags: ['OSINT', 'Pwn', 'Cryptography', 'Forensics', 'Web'],
 	},
 ];
+
+export function getCompetitionsFromSkill(skill: string) {
+	return competitions.filter((comp) => comp.tags?.includes(skill));
+}
