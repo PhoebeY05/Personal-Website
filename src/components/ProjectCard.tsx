@@ -18,11 +18,16 @@ export default function ProjectCard({ name, description, month, link, github, de
 	const demoVideos = demo.filter(isDemoVideo) ?? [];
 
 	return (
-		<div className="group rounded-2xl border p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 bg-brand-card my-4">
+		<div className="group rounded-2xl border border-gray-200 bg-brand-card shadow-md hover:shadow-xl transition-all duration-300 p-6 my-5 transform hover:-translate-y-1 hover:scale-[1.02] motion-reduce:transform-none">
 			{/* Title + Date */}
-			<div className="flex items-start justify-between mb-3">
-				<h3 className="text-xl font-semibold text-brand-text group-hover:text-brand-accent transition-colors">
-					<Link to={`/projects/${projectSlug}`}>{name}</Link>
+			<div className="flex items-center justify-between mb-4">
+				<h3 className="text-2xl font-semibold text-brand-text group-hover:text-brand-accent transition-colors relative">
+					<Link
+						to={`/projects/${projectSlug}`}
+						className="after:block after:h-[2px] after:bg-brand-accent after:transition-all after:w-0 hover:after:w-full"
+					>
+						{name}
+					</Link>
 				</h3>
 				<span className="text-sm text-brand-muted">{month}</span>
 			</div>
@@ -31,23 +36,23 @@ export default function ProjectCard({ name, description, month, link, github, de
 			<p className="text-sm text-brand-text mb-4 leading-relaxed">{description}</p>
 
 			{/* Tags */}
-			<div className="flex flex-wrap gap-2 mb-4">
+			<div className="flex flex-wrap gap-2 mb-6">
 				{tags.map((tag, index) => (
-					<Tag name={tag} index={index} />
+					<Tag key={index} name={tag} index={index} />
 				))}
 			</div>
 
-			{/* Footer */}
-			<div className="flex items-center gap-4 pt-2">
+			{/* Footer Links */}
+			<div className="flex flex-wrap gap-3">
 				{github && (
 					<a
 						href={github}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex items-center gap-1 text-sm text-brand-accent hover:underline"
+						className="flex items-center gap-2 px-3 py-1.5 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 hover:scale-105 transition-transform duration-200"
 					>
-						<Code size={18} />
-						Source Code
+						<Code size={16} />
+						Source
 					</a>
 				)}
 				{link && (
@@ -55,25 +60,22 @@ export default function ProjectCard({ name, description, month, link, github, de
 						href={link}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex items-center gap-1 text-sm text-blue-600 hover:underline"
+						className="flex items-center gap-2 px-3 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg hover:bg-indigo-100 hover:scale-105 transition-transform duration-200"
 					>
 						<ExternalLink size={16} />
 						Visit
 					</a>
 				)}
-
-				{demoVideos.length == 1 && (
-					<div className="flex gap-3">
-						<a
-							href={demoVideos[0]}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="flex items-center gap-1 text-sm text-purple-600 hover:underline"
-						>
-							<PlayCircle size={16} />
-							Demo
-						</a>
-					</div>
+				{demoVideos.length === 1 && (
+					<a
+						href={demoVideos[0]}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-purple-600 rounded-lg hover:bg-purple-100 hover:scale-105 transition-transform duration-200"
+					>
+						<PlayCircle size={16} />
+						Demo
+					</a>
 				)}
 			</div>
 		</div>

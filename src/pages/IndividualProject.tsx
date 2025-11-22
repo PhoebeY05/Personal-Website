@@ -43,7 +43,7 @@ export default function ProjectPage() {
 									href={project.github}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="flex items-center gap-2 text-brand-accent font-extrabold hover:underline text-lg"
+									className="flex items-center gap-2 text-gray-800 font-extrabold hover:underline text-lg"
 								>
 									<Code size={18} />
 									Source Code
