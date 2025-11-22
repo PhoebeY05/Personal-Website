@@ -14,7 +14,7 @@ export interface Experience {
 export const experiences: Experience[] = [
 	{
 		type: 'work',
-		name: 'Computing for Voluntary Welfare Organisations (CVWO)',
+		name: 'Computing for Voluntary Welfare Organisations',
 		duration: 'May 2025 – Aug 2025',
 		role: 'Software Engineer Intern',
 		organisation: 'NUS CVWO',

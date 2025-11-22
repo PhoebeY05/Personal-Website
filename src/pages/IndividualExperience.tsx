@@ -3,6 +3,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import { experiences } from '@/data/experiences';
 import { motion } from 'motion/react';
 import Tag from '@/components/Tag';
+import { AnimatedShinyText } from '@/components/ui/animated-shiny-text';
 
 export default function IndividualExperience(): JSX.Element {
 	const { name: paramName } = useParams<{ name: string }>();
@@ -20,16 +21,18 @@ export default function IndividualExperience(): JSX.Element {
 				className="max-w-5xl w-full bg-brand-card backdrop-blur-xl border border-brand-muted rounded-3xl p-8 md:p-12 shadow-xl"
 			>
 				{/* Header: Name + Duration left, Role + Org right */}
-				<div className="flex flex-col md:flex-row md:justify-between md:items-end mb-8 gap-6">
+				<div className="flex flex-col md:flex-row md:justify-between md:items-start mb-8 gap-6">
 					{/* Left: Name + Duration */}
-					<div className="flex flex-col items-start md:items-start gap-1">
+					<div className="flex flex-col items-start md:max-w-[60%] flex-shrink-0 gap-1">
 						<h1 className="text-3xl md:text-5xl font-bold leading-tight text-brand-accent">{experience.name}</h1>
 						<p className="text-sm md:text-base opacity-60">{experience.duration}</p>
 					</div>
 
 					{/* Right: Role + Organisation */}
-					<div className="flex flex-col items-start md:items-end text-right md:text-right space-y-1">
-						<h2 className="text-xl md:text-2xl font-semibold">{experience.role}</h2>
+					<div className="flex flex-col items-start md:items-end text-left md:text-right flex-1 gap-1">
+						<span className="text-xl md:text-2xl font-semibold">
+							<AnimatedShinyText>{experience.role}</AnimatedShinyText>
+						</span>{' '}
 						<h3 className="text-lg md:text-xl opacity-70">{experience.organisation}</h3>
 					</div>
 				</div>
