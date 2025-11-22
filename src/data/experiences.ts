@@ -1,4 +1,4 @@
-interface Experience {
+export interface Experience {
 	type: string;
 	name: string;
 	duration: string;
@@ -14,7 +14,7 @@ export const experiences: Experience[] = [
 	{
 		type: 'work',
 		name: 'Computing for Voluntary Welfare Organisations (CVWO)',
-		duration: 'May 2025 – Aug 2024',
+		duration: 'May 2025 – Aug 2025',
 		role: 'Software Engineer Intern',
 		organisation: 'NUS CVWO',
 		description:
@@ -72,7 +72,7 @@ export const experiences: Experience[] = [
 	{
 		type: 'volunteering',
 		name: 'Programming for Kids (PFK)',
-		duration: 'March – June 2025',
+		duration: 'March 2025 – June 2025',
 		role: 'Volunteer',
 		organisation: 'Pioneer House',
 		description:
