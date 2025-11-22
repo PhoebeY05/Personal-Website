@@ -45,7 +45,6 @@ export default function ProjectCard({ name, description, month, link, github, de
 						target="_blank"
 						rel="noopener noreferrer"
 						className="flex items-center gap-2 px-3 py-1.5 text-brand-text rounded-lg hover:scale-110 transition-transform duration-200"
-						onClick={(e) => e.preventDefault()}
 					>
 						<Code size={16} />
 						Source
@@ -57,7 +56,6 @@ export default function ProjectCard({ name, description, month, link, github, de
 						target="_blank"
 						rel="noopener noreferrer"
 						className="flex items-center gap-2 px-3 py-1.5 text-indigo-600 rounded-lg hover:scale-110 transition-transform duration-200"
-						onClick={(e) => e.preventDefault()}
 					>
 						<ExternalLink size={16} />
 						Visit
@@ -69,7 +67,7 @@ export default function ProjectCard({ name, description, month, link, github, de
 						target="_blank"
 						rel="noopener noreferrer"
 						className="flex items-center gap-2 px-3 py-1.5 text-purple-600 rounded-lg hover:scale-110 transition-transform duration-200"
-						onClick={(e) => e.preventDefault()}
+						aria-label="Open demo video in new tab"
 					>
 						<PlayCircle size={16} />
 						Demo
