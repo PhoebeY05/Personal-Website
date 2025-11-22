@@ -136,6 +136,31 @@ export const skills: Skill[] = [
 		level: 'low',
 		description: 'Entry-level understanding of analyzing binaries and low-level program behavior.',
 	},
+	{
+		type: 'Cybersecurity',
+		name: 'Pwn',
+		level: 'low',
+		description: 'Binary exploitation basics: memory corruption, ROP, ASLR/PIE, and pwntools workflows.',
+	},
+	{
+		type: 'Cybersecurity',
+		name: 'Web',
+		level: 'low',
+		description: 'CTF-style web vulns: SQLi, XSS, CSRF, SSRF, authentication/session issues, and misconfigurations.',
+	},
+	{
+		type: 'Cybersecurity',
+		name: 'Cryptography',
+		level: 'low',
+		description:
+			'Classical/modern crypto challenges: encodings, padding oracles, RSA/ECC pitfalls, and side-channel hints.',
+	},
+	{
+		type: 'Cybersecurity',
+		name: 'Forensics',
+		level: 'low',
+		description: 'Artifact analysis, file carving, steganography, PCAP triage, and metadata/registry inspection.',
+	},
 
 	// General
 	{

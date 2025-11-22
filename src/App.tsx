@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound';
 import Projects from './pages/Projects';
 import Experiences from './pages/Experiences';
 import IndividualExperience from './pages/IndividualExperience';
+import Competitions from './pages/Competitions';
 
 function App() {
 	const location = useLocation();
@@ -29,6 +30,7 @@ function App() {
 						<Route path="/projects/:name" element={<IndividualProject />} />
 						<Route path="/experience" element={<Experiences />} />
 						<Route path="/experience/:name" element={<IndividualExperience />} />
+						<Route path="/competitions" element={<Competitions />} />
 						<Route path="/404" element={<NotFound />} />
 						<Route path="*" element={<Navigate to="/404" replace />} />
 					</Routes>

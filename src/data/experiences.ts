@@ -1,7 +1,7 @@
 const BASE = import.meta.env.BASE_URL; // "/" locally, "/repo-name/" on GitHub Pages
 
 // CVWO
-const CVWO = `${BASE}certificates/cvwo.jpeg`;
+const CVWO = `${BASE}experiences/CVWO/cvwo.jpeg`;
 const CVWO1 = `${BASE}experiences/CVWO/KWSH.jpg`;
 const CVWO2 = `${BASE}experiences/CVWO/Lunch.jpg`;
 const CVWO3 = `${BASE}experiences/CVWO/GIC.jpg`;
