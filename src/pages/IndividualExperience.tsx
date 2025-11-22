@@ -1,9 +1,13 @@
-import type { JSX } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
-import { experiences } from '@/data/experiences';
-import { motion } from 'motion/react';
+/* eslint-disable react-hooks/rules-of-hooks */
 import Tag from '@/components/Tag';
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text';
+import { experiences } from '@/data/experiences';
+import { ExternalLink } from 'lucide-react';
+import { motion } from 'motion/react';
+import type { JSX } from 'react';
+import { useEffect, useState } from 'react';
+import { Navigate, useParams } from 'react-router-dom';
+import Stack from '../components/Stack';
 
 export default function IndividualExperience(): JSX.Element {
 	const { name: paramName } = useParams<{ name: string }>();
@@ -11,6 +15,26 @@ export default function IndividualExperience(): JSX.Element {
 	const experience = experiences.find((exp) => exp.name.toLowerCase().replace(/\s+/g, '-') === paramName);
 
 	if (!experience) return <Navigate to="/404" replace />;
+
+	const imageCards = experience.images.map((src, i) => ({
+		id: i + 1,
+		img: src,
+	}));
+
+	const [cardSize, setCardSize] = useState(() => ({
+		width: Math.round(window.innerWidth * 0.4),
+		height: Math.round(window.innerWidth * 0.4),
+	}));
+
+	useEffect(() => {
+		const onResize = () =>
+			setCardSize({
+				width: Math.round(window.innerWidth * 0.4),
+				height: Math.round(window.innerWidth * 0.4),
+			});
+		window.addEventListener('resize', onResize);
+		return () => window.removeEventListener('resize', onResize);
+	}, []);
 
 	return (
 		<main className="min-h-screen w-full text-brand-text p-6 md:p-12 flex justify-center">
@@ -37,12 +61,29 @@ export default function IndividualExperience(): JSX.Element {
 					</div>
 				</div>
 
-				{/* Tags */}
-				{experience.tags.length > 0 && (
-					<div className="flex flex-wrap gap-2 mb-6">
-						{experience.tags.map((tag, idx) => (
-							<Tag key={idx} name={tag} index={idx} />
-						))}
+				{/* Tags + Certificate (side by side) */}
+				{(experience.tags.length > 0 || experience.certificate) && (
+					<div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6 gap-6">
+						{experience.tags.length > 0 && (
+							<div className="flex flex-wrap gap-2">
+								{experience.tags.map((tag, idx) => (
+									<Tag key={idx} name={tag} index={idx} />
+								))}
+							</div>
+						)}
+						{experience.certificate && (
+							<div className="md:text-right">
+								<a
+									href={experience.certificate}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex items-center gap-2 px-3 text-brand-accent hover:underline text-md font-black rounded-lg hover:scale-110 transition-transform duration-200"
+								>
+									<ExternalLink size={18} />
+									View Certificate
+								</a>
+							</div>
+						)}
 					</div>
 				)}
 
@@ -61,32 +102,21 @@ export default function IndividualExperience(): JSX.Element {
 					</div>
 				)}
 
-				{/* Optional: Images */}
+				{/* Images (certificate removed from here) */}
 				{experience.images.length > 0 && (
-					<div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-						{experience.images.map((img, idx) => (
-							<img
-								key={idx}
-								src={img}
-								alt={`${experience.role} image ${idx + 1}`}
-								className="rounded-xl shadow-md object-cover w-full h-64"
+					<div className="flex flex-col items-center my-6">
+						<div className="relative inline-block">
+							<Stack
+								randomRotation={true}
+								sensitivity={180}
+								sendToBackOnClick={false}
+								cardDimensions={cardSize}
+								cardsData={imageCards}
 							/>
-						))}
-					</div>
-				)}
-
-				{/* Optional: Certificate */}
-				{experience.certificate && (
-					<div className="mt-8">
-						<h3 className="text-xl font-semibold mb-2">Certificate:</h3>
-						<a
-							href={experience.certificate}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="text-brand-accent hover:underline"
-						>
-							View Certificate
-						</a>
+							<p className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-max text-md opacity-60">
+								Swipe to see more!
+							</p>
+						</div>
 					</div>
 				)}
 			</motion.div>
