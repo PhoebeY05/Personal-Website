@@ -39,7 +39,7 @@ export default function AboutMe(): JSX.Element {
 					<article className="md:col-span-1">
 						<div className="h-full">
 							<img
-								src={Sketch}
+								src={Sketch} // keeps bundler-managed import; avoid manual leading slash paths
 								alt="Profile"
 								loading="lazy"
 								className="w-full h-full rounded-lg object-cover"

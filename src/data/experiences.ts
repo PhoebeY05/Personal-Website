@@ -1,18 +1,20 @@
+const BASE = import.meta.env.BASE_URL; // "/" locally, "/repo-name/" on GitHub Pages
+
 // CVWO
-const CVWO = '/certificates/cvwo.jpeg';
-const CVWO1 = '/experiences/CVWO/KWSH.jpg';
-const CVWO2 = '/experiences/CVWO/Lunch.jpg';
-const CVWO3 = '/experiences/CVWO/GIC.jpg';
+const CVWO = `${BASE}certificates/cvwo.jpeg`;
+const CVWO1 = `${BASE}experiences/CVWO/KWSH.jpg`;
+const CVWO2 = `${BASE}experiences/CVWO/Lunch.jpg`;
+const CVWO3 = `${BASE}experiences/CVWO/GIC.jpg`;
 
 // R&S
-const RohdeAndSchwarz1 = '/experiences/RohdeAndSchwarz/worktable.jpeg';
-const RohdeAndSchwarz2 = '/experiences/RohdeAndSchwarz/gift.jpeg';
+const RohdeAndSchwarz1 = `${BASE}experiences/RohdeAndSchwarz/worktable.jpeg`;
+const RohdeAndSchwarz2 = `${BASE}experiences/RohdeAndSchwarz/gift.jpeg`;
 
 // PFK
-const PFK1 = '/experiences/PFK/trial.jpeg';
+const PFK1 = `${BASE}experiences/PFK/trial.jpeg`;
 
 // RTTO
-const RTTO1 = '/experiences/RTTO/rtto.jpeg';
+const RTTO1 = `${BASE}experiences/RTTO/rtto.jpeg`;
 
 export interface Experience {
 	type: string;

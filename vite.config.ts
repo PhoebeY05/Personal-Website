@@ -3,9 +3,13 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
 
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1];
+const base =
+	// On GitHub Actions with a repo name → project pages
+	process.env.GITHUB_ACTIONS && repoName ? `/${repoName}/` : '/';
+
 export default defineConfig({
-	// base must be the repo name for GitHub project pages
-	base: './',
+	base,
 	plugins: [react(), tailwindcss()],
 	resolve: {
 		alias: {
