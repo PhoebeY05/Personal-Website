@@ -23,32 +23,14 @@ export const experiences: Experience[] = [
 		tasks: [
 			// High-level tasks
 			'HPC migration for LBSA Rails App',
-			'Maintained and built features for the KWSH NOK App',
+			'Built and maintained features for the KWSH NOK App',
 			'Developed and modified backend services across AAC and Cornerstone systems',
 			'Worked on multiple large codebases spanning backend, frontend, and mobile',
 			'Followed internal Git workflow and DevOps lifecycle',
-
-			// Backend (AAC & Cornerstone)
-			'Implemented handlers, policies, params, data access, and views in Golang backend',
-			'Created and modified methods across large backend codebases (AAC ~40838 LoC, Cornerstone ~315281 LoC)',
-
-			// Frontend
-			'Built and maintained frontend pages for AAC (~366431 LoC)',
-			'Contributed to AAC Volunteer App frontend (~73718 LoC)',
-			'Contributed to KWSH NOK App frontend (~32358 LoC)',
-
-			// Mobile Development
-			'Implemented DevOps workflow for Expo-based mobile apps',
-			'Set up push notification pipeline using Expo Notifications',
-
-			// Workflow & Learning
-			'Used reducers to manage API calls and global state',
-			'Applied useAppDispatch and useAppSelector for reducer integration',
-			'Followed Work Lifecycle Git workflow',
 		],
 		images: [],
 		certificate: '',
-		tags: ['Golang', 'React', 'Frontend', 'Backend', 'Mobile', 'DevOps', 'Expo', 'Full-stack'],
+		tags: ['Golang', 'React', 'Frontend', 'Backend', 'Mobile', 'DevOps', 'Expo Go', 'Git'],
 	},
 
 	{

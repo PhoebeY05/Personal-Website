@@ -8,6 +8,7 @@ import IndividualSkill from './pages/IndividualSkill';
 import NotFound from './pages/NotFound';
 import Projects from './pages/Projects';
 import Experiences from './pages/Experiences';
+import IndividualExperience from './pages/IndividualExperience';
 
 function App() {
 	const location = useLocation();
@@ -27,6 +28,7 @@ function App() {
 						<Route path="/projects" element={<Projects />} />
 						<Route path="/projects/:name" element={<IndividualProject />} />
 						<Route path="/experience" element={<Experiences />} />
+						<Route path="/experience/:name" element={<IndividualExperience />} />
 						<Route path="/404" element={<NotFound />} />
 						<Route path="*" element={<Navigate to="/404" replace />} />
 					</Routes>
