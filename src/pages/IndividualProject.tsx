@@ -32,7 +32,7 @@ export default function ProjectPage() {
 									href={project.link}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="flex items-center gap-2 text-blue-600 font-extrabold hover:underline text-lg"
+									className="flex items-center text-lg gap-2 px-3 py-1.5 text-indigo-600 rounded-lg hover:scale-110 transition-transform duration-200"
 								>
 									<ExternalLink size={18} />
 									Visit
@@ -43,7 +43,7 @@ export default function ProjectPage() {
 									href={project.github}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="flex items-center gap-2 text-gray-800 font-extrabold hover:underline text-lg"
+									className="flex items-center text-lg gap-2 px-3 py-1.5 text-brand-text rounded-lg hover:scale-110 transition-transform duration-200"
 								>
 									<Code size={18} />
 									Source Code

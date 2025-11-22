@@ -14,7 +14,7 @@ export default function Tag({ name, index }: TagProps) {
 			{isSkill(name) ? (
 				<span
 					key={index}
-					className="text-xs px-2 py-1 rounded-full bg-brand-secondary text-brand-text border border-brand-accent"
+					className="text-xs px-2 py-1 rounded-full bg-brand-secondary text-brand-text border border-brand-accent hover:scale-110 transition-transform duration-200"
 				>
 					<Link to={`/skills/${skillSlug}`}>{name}</Link>
 				</span>

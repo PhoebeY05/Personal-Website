@@ -44,7 +44,7 @@ export default function ProjectCard({ name, description, month, link, github, de
 						href={github}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex items-center gap-2 px-3 py-1.5 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 hover:scale-105 transition-transform duration-200"
+						className="flex items-center gap-2 px-3 py-1.5 text-brand-text rounded-lg hover:scale-110 transition-transform duration-200"
 						onClick={(e) => e.preventDefault()}
 					>
 						<Code size={16} />
@@ -56,7 +56,7 @@ export default function ProjectCard({ name, description, month, link, github, de
 						href={link}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex items-center gap-2 px-3 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg hover:bg-indigo-100 hover:scale-105 transition-transform duration-200"
+						className="flex items-center gap-2 px-3 py-1.5 text-indigo-600 rounded-lg hover:scale-110 transition-transform duration-200"
 						onClick={(e) => e.preventDefault()}
 					>
 						<ExternalLink size={16} />
@@ -68,7 +68,7 @@ export default function ProjectCard({ name, description, month, link, github, de
 						href={demoVideos[0]}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-purple-600 rounded-lg hover:bg-purple-100 hover:scale-105 transition-transform duration-200"
+						className="flex items-center gap-2 px-3 py-1.5 text-purple-600 rounded-lg hover:scale-110 transition-transform duration-200"
 						onClick={(e) => e.preventDefault()}
 					>
 						<PlayCircle size={16} />

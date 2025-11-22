@@ -112,16 +112,16 @@ export default function AboutMe(): JSX.Element {
 						{types.map((type) => (
 							<div
 								key={type}
-								className="group bg-brand-card p-4 mb-2 rounded-xl shadow-lg outline-1 outline-brand-react w-full hover:bg-brand-secondary hover:outline-brand-secondary"
+								className="group bg-brand-card p-4 mb-2 rounded-xl shadow-lg outline-1 outline-brand-react w-full hover:bg-brand-accent"
 							>
 								<h3 className="text-lg text-brand-text font-semibold mb-3">{type}</h3>
 								{/* matrix: 1 / 2 / 3 columns (mobile → sm → md+) */}
-								<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 group-hover:bg-brand-secondary">
+								<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 group-hover:bg-transparent">
 									{grouped[type].map((skill) => (
 										// two-row card: top = label (can wrap), bottom = progress bar (SkillProgress renders only the bar)
 										<div
 											key={skill.name}
-											className="p-2 bg-brand-card rounded-md h-20 flex flex-col justify-between group-hover:bg-brand-secondary"
+											className="p-2 bg-brand-card rounded-md h-20 flex flex-col justify-between group-hover:bg-transparent"
 										>
 											<span className="text-sm font-medium text-brand-text leading-tight">{skill.name}</span>
 											<div>
