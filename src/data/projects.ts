@@ -45,7 +45,7 @@ export const projects: Project[] = [
 	{
 		name: 'AI Content Generator',
 		description:
-			'A generative-AI platform enabling users to create a complete video product—thumbnail, video, narration, and audio—= a single text prompt, with options to customise, regenerate, and combine content.',
+			'A generative-AI platform enabling users to create a complete video product — thumbnail, video, narration, and audio — from a single text prompt, with options to customise, regenerate, and combine content.',
 		month: 'July 2024',
 		link: 'https://content-generator-xlck.onrender.com',
 		github: 'https://github.com/PhoebeY05/TikTok-TechJam',
