@@ -34,11 +34,10 @@ All pages derive UI from these arrays—add or modify entries to update content.
 
 ```
 src/
-  components/        # Reusable UI primitives (Tag, PillFilter, Stack, etc.)
+  components/        # Reusable UI primitives (Tag, Stack, etc.)
   pages/             # Route-level screens (AboutMe, Projects, Experiences, Competitions, etc.)
   data/              # Structured data objects
-  assets/            # Images / media referenced via imports
-  components/       # Reusable components
+  components/        # Reusable components
 ```
 
 ## Animation & Motion
