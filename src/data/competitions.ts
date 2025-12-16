@@ -109,6 +109,30 @@ export const competitions: Competition[] = [
 		link: 'https://github.com/PhoebeY05/SMU-Whitehacks-Writeups',
 		tags: ['OSINT', 'Pwn', 'Cryptography', 'Forensics', 'Web'],
 	},
+	{
+		type: 'hackathon',
+		name: 'HackSmith v6.0',
+		description:
+			'Team-based hackathon where I built a cybersecurity-focused web app. Implemented a FastAPI backend and integrated a responsive frontend to deliver a working prototype and demo.',
+		month: '2025',
+		result: 'Participation',
+		competitionLink: '',
+		certificate: '',
+		link: 'https://github.com/PhoebeY05/HackSmith-v6.0',
+		tags: ['Cybersecurity', 'Full-Stack', 'FastAPI'],
+	},
+	{
+		type: 'hackathon',
+		name: 'ERNIE AI Developer Challenge',
+		description:
+			'Built an end-to-end document-to-knowledge-graph pipeline on Baidu AI Studio using ERNIE for entity and relation extraction and PaddleOCR for OCR, transforming PDFs into an interactive graph for exploration and search.',
+		month: '2025',
+		result: 'Participation',
+		competitionLink: 'https://baiduernieai.devpost.com/',
+		certificate: '',
+		link: 'https://github.com/PhoebeY05/Knowledge-Graph',
+		tags: ['AI', 'AI Studio', 'PaddleOCR', 'ERNIE'],
+	},
 ];
 
 export function getCompetitionsFromSkill(skill: string) {
