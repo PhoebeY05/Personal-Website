@@ -34,11 +34,11 @@ All pages derive UI from these arrays—add or modify entries to update content.
 
 ```
 src/
-  components/        # Reusable UI primitives (Tag, PillFilter, Stack, etc.)
+  components/        # Reusable UI primitives (Tag, Stack, etc.)
   pages/             # Route-level screens (AboutMe, Projects, Experiences, Competitions, etc.)
   data/              # Structured data objects
-  assets/            # Images / media referenced via imports
-  components/       # Reusable components
+  components/        # Reusable components
+```
 
 ## Animation & Motion
 
@@ -54,14 +54,15 @@ CSS variables mapped to Tailwind theme tokens for consistent design.
 ## Accessibility
 
 - Alt text on media
-- Keyboard navigation supported (arrow keys for slider previously; simplified now)
 - High contrast state in dark mode
 
 ## Future Improvements
 
-- i18n support
+- i18n support (translation)
 - Lazy loading / code splitting
-- Search across projects / experiences
+- Search across projects / experiences / competitions
+- Blog section
+- Education section
 
 ## Learning Emphasis
 
