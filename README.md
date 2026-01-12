@@ -21,6 +21,8 @@ An interactive, data-driven portfolio showcasing projects, skills, experiences, 
 | Routing | react-router-dom |
 | Build / Deploy | Vite, GitHub Pages |
 
+Run `npx vite` to start locally
+
 ## Data Sources
 
 - `src/data/projects.ts` – project metadata (name, month, tags, media)
