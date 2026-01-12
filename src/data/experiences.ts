@@ -12,6 +12,8 @@ const RohdeAndSchwarz2 = `${BASE}experiences/RohdeAndSchwarz/gift.jpeg`;
 
 // PFK
 const PFK1 = `${BASE}experiences/PFK/trial.jpeg`;
+const PFK2 = `${BASE}experiences/PFK/jan2026_1.jpeg`;
+const PFK3 = `${BASE}experiences/PFK/jan2026_2.jpeg`;
 
 // RTTO
 const RTTO1 = `${BASE}experiences/RTTO/rtto.jpeg`;
@@ -75,7 +77,7 @@ export const experiences: Experience[] = [
 	{
 		type: 'volunteering',
 		name: 'Programming for Kids (PFK)',
-		duration: 'March 2025 – June 2025',
+		duration: 'March 2025 – January 2026',
 		role: 'Volunteer',
 		organisation: 'Pioneer House',
 		description:
@@ -88,11 +90,11 @@ export const experiences: Experience[] = [
 			// Actual sessions
 			'Guided P4 students in Scratch programming',
 			'Led icebreakers and provided one-on-one support during activities',
-			'Interacted with various volunteers across NTU, RVJC, ACSI, and JPJC',
-			'Lecturer for a session, teaching and walking around to check progress',
+			'Interacted with various volunteers across NTU, RVJC, ITE, and JPJC',
+			'Lecturer for a few sessions, teaching and walking around to check progress',
 			'Helped students debug and complete their final projects',
 		],
-		images: [PFK1],
+		images: [PFK1, PFK2, PFK3],
 		certificate: '',
 		tags: ['Scratch', 'Teaching', 'Programming Basics'],
 	},
