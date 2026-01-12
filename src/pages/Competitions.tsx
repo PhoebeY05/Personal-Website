@@ -49,7 +49,7 @@ export default function Competitions() {
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ duration: 0.4 }}
-								className="bg-brand-card border border-brand-secondary backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+								className="bg-brand-card border border-brand-secondary backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
 							>
 								{/* Card Header */}
 								<div className="flex items-start justify-between">
@@ -69,48 +69,51 @@ export default function Competitions() {
 								{/* Description */}
 								<p className="text-sm mt-3 opacity-90">{comp.description}</p>
 
-								{/* Tags */}
-								{comp.tags && comp.tags.length > 0 && (
-									<div className="flex flex-wrap gap-2 mt-4">
-										{comp.tags.map((tag, i) => (
-											<Tag index={i} key={tag} name={tag} />
-										))}
+								{/* Bottom section: Tags + Buttons anchored */}
+								<div className="mt-auto space-y-4">
+									{/* Tags */}
+									{comp.tags && comp.tags.length > 0 && (
+										<div className="flex flex-wrap gap-2 mt-2">
+											{comp.tags.map((tag, i) => (
+												<Tag index={i} key={tag} name={tag} />
+											))}
+										</div>
+									)}
+
+									{/* Buttons */}
+									<div className="flex gap-3">
+										{comp.link && (
+											<a
+												href={comp.link}
+												target="_blank"
+												className="
+																				flex items-center gap-2 px-4 py-2 
+																				border border-brand-accent/40 text-brand-accent 
+																				rounded-full text-sm font-semibold
+																				hover:bg-brand-accent/10 hover:border-brand-accent 
+																				transition-all duration-300
+												"
+											>
+												<span>{comp.type == 'ctf' ? 'Writeup' : 'Submission'}</span>
+											</a>
+										)}
+
+										{comp.certificate && (
+											<a
+												href={comp.certificate}
+												target="_blank"
+												className="
+																				flex items-center gap-2 px-4 py-2
+																				border border-brand-accent/40 text-brand-accent 
+																				rounded-full text-sm font-semibold
+																				hover:bg-brand-accent/10 hover:border-brand-accent
+																				transition-all duration-300
+												"
+											>
+												<span>Certificate</span>
+											</a>
+										)}
 									</div>
-								)}
-
-								{/* Buttons */}
-								<div className="flex gap-3 mt-6">
-									{comp.link && (
-										<a
-											href={comp.link}
-											target="_blank"
-											className="
-											flex items-center gap-2 px-4 py-2 
-											border border-brand-accent/40 text-brand-accent 
-											rounded-full text-sm font-semibold
-											hover:bg-brand-accent/10 hover:border-brand-accent 
-											transition-all duration-300
-										"
-										>
-											<span>Writeup</span>
-										</a>
-									)}
-
-									{comp.certificate && (
-										<a
-											href={comp.certificate}
-											target="_blank"
-											className="
-											flex items-center gap-2 px-4 py-2
-											border border-brand-accent/40 text-brand-accent 
-											rounded-full text-sm font-semibold
-											hover:bg-brand-accent/10 hover:border-brand-accent
-											transition-all duration-300
-										"
-										>
-											<span>Certificate</span>
-										</a>
-									)}
 								</div>
 							</motion.div>
 						))}

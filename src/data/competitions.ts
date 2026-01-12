@@ -38,7 +38,7 @@ export const competitions: Competition[] = [
 		competitionLink: 'https://tiktoktechjam2024.devpost.com/',
 		certificate: '',
 		link: 'https://github.com/PhoebeY05/TikTok-TechJam',
-		tags: ['Product Ideation', 'Full-Stack', 'AI'],
+		tags: ['Flask', 'Jinja', 'HTML', 'Bootstrap', 'HuggingFace', 'Gradio Client', 'FFmpeg', 'Python', 'OpenCV', 'PIL'],
 	},
 	{
 		type: 'hackathon',
@@ -95,7 +95,7 @@ export const competitions: Competition[] = [
 		competitionLink: 'https://2023.imaginaryctf.org/',
 		certificate: '',
 		link: '',
-		tags: ['Forensics', 'Cryptography', 'Forensics', 'Reverse Engineering', 'Pwn', 'Web'],
+		tags: ['Forensics', 'Cryptography', 'Reverse Engineering', 'Pwn', 'Web'],
 	},
 	{
 		type: 'ctf',
@@ -114,19 +114,19 @@ export const competitions: Competition[] = [
 		name: 'HackSmith v6.0',
 		description:
 			'Team-based hackathon where I built a cybersecurity-focused web app. Implemented a FastAPI backend and integrated a responsive frontend to deliver a working prototype and demo.',
-		month: '2025',
+		month: 'December 2025',
 		result: 'Participation',
 		competitionLink: '',
 		certificate: '',
-		link: 'https://github.com/PhoebeY05/HackSmith-v6.0',
-		tags: ['Cybersecurity', 'Full-Stack', 'FastAPI'],
+		link: 'https://github.com/PhoebeY05/HackSmith-v6.0-Backend',
+		tags: ['Cybersecurity', 'Python', 'FastAPI', 'TypeScript', 'React'],
 	},
 	{
 		type: 'hackathon',
 		name: 'ERNIE AI Developer Challenge',
 		description:
 			'Built an end-to-end document-to-knowledge-graph pipeline on Baidu AI Studio using ERNIE for entity and relation extraction and PaddleOCR for OCR, transforming PDFs into an interactive graph for exploration and search.',
-		month: '2025',
+		month: 'December 2025',
 		result: 'Participation',
 		competitionLink: 'https://baiduernieai.devpost.com/',
 		certificate: '',
