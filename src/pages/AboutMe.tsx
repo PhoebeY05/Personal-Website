@@ -85,7 +85,7 @@ export default function AboutMe(): JSX.Element {
 								<AppearOnScroll className="md:col-span-1">
 									<div className="bg-gradient-to-tr from-brand-react to-brand-secondary rounded-xl p-6 flex flex-col items-center justify-center text-center space-y-2 shadow-inner">
 										<NumberTicker
-											value={4.93}
+											value={4.8}
 											dir="up"
 											decimalPlaces={2}
 											className="text-4xl font-extrabold tracking-tight text-brand-text"
