@@ -118,7 +118,7 @@ export const competitions: Competition[] = [
 		result: 'Participation',
 		competitionLink: '',
 		certificate: '',
-		link: 'https://github.com/PhoebeY05/HackSmith-v6.0-Backend',
+		link: '', // https://github.com/PhoebeY05/HackSmith-v6.0-Backend
 		tags: ['Cybersecurity', 'Python', 'FastAPI', 'TypeScript', 'React'],
 	},
 	{
@@ -130,7 +130,7 @@ export const competitions: Competition[] = [
 		result: 'Participation',
 		competitionLink: 'https://baiduernieai.devpost.com/',
 		certificate: '',
-		link: 'https://github.com/PhoebeY05/Knowledge-Graph',
+		link: '', // https://github.com/PhoebeY05/Knowledge-Graph
 		tags: ['AI', 'AI Studio', 'PaddleOCR', 'ERNIE'],
 	},
 ];
