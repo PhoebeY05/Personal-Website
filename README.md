@@ -21,7 +21,10 @@ An interactive, data-driven portfolio showcasing projects, skills, experiences, 
 | Routing | react-router-dom |
 | Build / Deploy | Vite, GitHub Pages |
 
-Run `npx vite` to start locally
+
+### Key Commands
+- Run `npx vite` to start locally
+- Run `npm run format` to lint project
 
 ## Data Sources
 
